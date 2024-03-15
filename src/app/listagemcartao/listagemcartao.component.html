@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Listagem de Cartões</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Cliente</th>
+        <th>Limite</th>
+        <th>Validade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let cartao of cartoes">
+        <td>{{ cartao.numero }}</td>
+        <td>{{ cartao.cliente }}</td>
+        <td>{{ cartao.limite | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ cartao.validade | date:'MM/yyyy' }}</td>
+        <td> -->
+          <button class="btn btn-sm btn-primary" disabled>Alterar limite</button>
+          <button class="btn btn-sm btn-info" disabled>Ver fatura</button>
+          <button class="btn btn-sm btn-success" disabled>Ativar</button>
+          <button class="btn btn-sm btn-danger" disabled>Cancelar</button>
+        <!-- </td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>

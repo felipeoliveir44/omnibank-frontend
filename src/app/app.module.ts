@@ -10,25 +10,33 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
-import {FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import {MatTabsModule} from '@angular/material/tabs';
 
 //Pagina
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
-import { LoginComponent } from './login/login.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { FooterComponent } from './footer/footer.component';
+import { CadastrocartaoComponent } from './cadastrocartao/cadastrocartao.component';
+import { CadastrocompraComponent } from './cadastrocompra/cadastrocompra.component';
+import { AlterarlimitecartaoComponent } from './alterarlimitecartao/alterarlimitecartao.component';
+import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     CabecalhoComponent,
     ClientesComponent,
-
+      FooterComponent,
+      CadastrocartaoComponent,
+      CadastrocompraComponent,
+      AlterarlimitecartaoComponent,
+      ListagemcartaoComponent
    ],
   imports: [
     BrowserModule,
@@ -43,7 +51,8 @@ import { ClientesComponent } from './clientes/clientes.component';
     MatDividerModule,
     MatCardModule,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
