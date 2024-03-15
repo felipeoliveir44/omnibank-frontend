@@ -14,6 +14,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
 
+import {MatMenuModule} from '@angular/material/menu';
+
+
+
 //Pagina
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,10 +29,11 @@ import { CadastrocartaoComponent } from './cadastrocartao/cadastrocartao.compone
 import { CadastrocompraComponent } from './cadastrocompra/cadastrocompra.component';
 import { AlterarlimitecartaoComponent } from './alterarlimitecartao/alterarlimitecartao.component';
 import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.component';
+import { CadastrologinComponent } from './cadastrologin/cadastrologin.component';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     CabecalhoComponent,
     ClientesComponent,
@@ -36,7 +41,8 @@ import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.compone
       CadastrocartaoComponent,
       CadastrocompraComponent,
       AlterarlimitecartaoComponent,
-      ListagemcartaoComponent
+      ListagemcartaoComponent,
+      CadastrologinComponent
    ],
   imports: [
     BrowserModule,
@@ -52,6 +58,7 @@ import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.compone
     MatCardModule,
     ReactiveFormsModule,
     NgIf,
+    MatMenuModule,
     MatTabsModule
   ],
   providers: [],

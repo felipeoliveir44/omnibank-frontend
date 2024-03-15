@@ -9,6 +9,7 @@ import { CadastrocartaoComponent } from './cadastrocartao/cadastrocartao.compone
 import { CadastrocompraComponent } from './cadastrocompra/cadastrocompra.component';
 import { AlterarlimitecartaoComponent } from './alterarlimitecartao/alterarlimitecartao.component';
 import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.component';
+import { CadastrologinComponent } from './cadastrologin/cadastrologin.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'cadastrocartao', component: CadastrocartaoComponent},
   {path: 'cadastrocompra', component: CadastrocompraComponent},
   {path: 'alterarlimitecartao', component: AlterarlimitecartaoComponent},
-  {path: 'listagemcartao', component: ListagemcartaoComponent}
+  {path: 'listagemcartao', component: ListagemcartaoComponent},
+  {path: 'cadastrologin', component: CadastrologinComponent}
 ];
 
 @NgModule({
