@@ -1,0 +1,23 @@
+<h1> CADASTRO </h1>
+<br>
+
+<form (ngSubmit)="submitForm()" #clienteForm="ngForm">
+  <mat-form-field>
+    <input matInput placeholder="Nome" name="nome" ngModel required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="CPF" name="cpf" ngModel required email>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" name="email" ngModel required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Telefone" name="telefone" ngModel required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+</form>
+

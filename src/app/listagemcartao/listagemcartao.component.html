@@ -1,29 +1,46 @@
 <div class="container">
   <h2>Listagem de Cartões</h2>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Número</th>
-        <th>Cliente</th>
-        <th>Limite</th>
-        <th>Validade</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- <tr *ngFor="let cartao of cartoes">
-        <td>{{ cartao.numero }}</td>
-        <td>{{ cartao.cliente }}</td>
-        <td>{{ cartao.limite | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td>{{ cartao.validade | date:'MM/yyyy' }}</td>
-        <td> -->
-          <button class="btn btn-sm btn-primary" disabled>Alterar limite</button>
-          <button class="btn btn-sm btn-info" disabled>Ver fatura</button>
-          <button class="btn btn-sm btn-success" disabled>Ativar</button>
-          <button class="btn btn-sm btn-danger" disabled>Cancelar</button>
-        <!-- </td>
-      </tr> -->
-    </tbody>
+  <table mat-table class="mat-elevation-z8">
+    <ng-container matColumnDef="numero">
+      <th mat-header-cell *matHeaderCellDef>Número</th>
+      <td mat-cell *matCellDef="let cartao">{{ cartao.numero }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef>Cliente</th>
+      <td mat-cell *matCellDef="let cartao">{{ cartao.cliente }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="limite">
+      <th mat-header-cell *matHeaderCellDef>Limite</th>
+      <td mat-cell *matCellDef="let cartao">{{ cartao.limite | currency:'BRL':'symbol':'1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="validade">
+      <th mat-header-cell *matHeaderCellDef>Validade</th>
+      <td mat-cell *matCellDef="let cartao">{{ cartao.validade | date:'MM/yyyy' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let cartao">
+        <button mat-icon-button disabled>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button disabled>
+          <mat-icon>receipt</mat-icon>
+        </button>
+        <button mat-icon-button disabled>
+          <mat-icon>check_circle</mat-icon>
+        </button>
+        <button mat-icon-button disabled>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['numero', 'cliente', 'limite', 'validade', 'acoes']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['numero', 'cliente', 'limite', 'validade', 'acoes']"></tr>
   </table>
 </div>

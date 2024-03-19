@@ -1,5 +1,41 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-  <mat-tab label="Vizualizar Fatura">Content 1</mat-tab>
-  <mat-tab label="Relatório de Gasstor por Categoria">Content 2</mat-tab>
-  <mat-tab label="Relatório de Acompanhamento de Clientes">Content 3</mat-tab>
-</mat-tab-group>
+<!-- dashboard.component.html -->
+
+<!-- <div class="dashboard-container">
+  <mat-grid-list cols="4" rowHeight="200px">
+    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">{{tile.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <p class="card-text">Conteúdo do {{tile.content}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div> -->
+
+
+<div class="dashboard">
+  <div class="card">
+    <h3>Saldo Atual</h3>
+    <p>R$ 10.000,00</p>
+  </div>
+  <div class="card">
+    <h3>Despesas Recentes</h3>
+    <p>Última despesa: R$ 500,00</p>
+  </div>
+  <div class="card">
+    <h3>Gráfico de Rendimento</h3>
+    <div class="chart-container">
+      <!-- Adicione seu gráfico aqui -->
+    </div>
+  </div>
+  <div class="card">
+    <h3>Últimas Transações</h3>
+    <p>Transação 1: R$ 200,00</p>
+    <p>Transação 2: R$ 300,00</p>
+  </div>
+</div>
+
+

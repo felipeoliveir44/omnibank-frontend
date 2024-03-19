@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //MUI
 import {MatIconModule} from '@angular/material/icon';
@@ -13,36 +14,47 @@ import {MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
-
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+
+
+
+
+
 
 
 
 //Pagina
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
-import { ClientesComponent } from './clientes/clientes.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastrocartaoComponent } from './cadastrocartao/cadastrocartao.component';
 import { CadastrocompraComponent } from './cadastrocompra/cadastrocompra.component';
 import { AlterarlimitecartaoComponent } from './alterarlimitecartao/alterarlimitecartao.component';
 import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.component';
 import { CadastrologinComponent } from './cadastrologin/cadastrologin.component';
+import { CadastroclienteComponent } from './cadastrocliente/cadastrocliente.component';
+import { RelatoriosComponent } from './relatorios/relatorios.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CabecalhoComponent,
-    ClientesComponent,
       FooterComponent,
       CadastrocartaoComponent,
       CadastrocompraComponent,
       AlterarlimitecartaoComponent,
       ListagemcartaoComponent,
-      CadastrologinComponent
+      CadastrologinComponent,
+      CadastroclienteComponent,
+      RelatoriosComponent
    ],
   imports: [
     BrowserModule,
@@ -59,7 +71,17 @@ import { CadastrologinComponent } from './cadastrologin/cadastrologin.component'
     ReactiveFormsModule,
     NgIf,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatTableModule,
+    MatGridListModule,
+    MatListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
