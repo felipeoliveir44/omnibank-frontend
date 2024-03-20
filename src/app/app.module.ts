@@ -39,12 +39,14 @@ import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.compone
 import { CadastrologinComponent } from './cadastrologin/cadastrologin.component';
 import { CadastroclienteComponent } from './cadastrocliente/cadastrocliente.component';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
 
 
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     CabecalhoComponent,
       FooterComponent,
@@ -54,7 +56,8 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
       ListagemcartaoComponent,
       CadastrologinComponent,
       CadastroclienteComponent,
-      RelatoriosComponent
+      RelatoriosComponent,
+      ListagemclienteComponent
    ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
     MatSelectModule,
     MatTableModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
 
   ],
   providers: [],
