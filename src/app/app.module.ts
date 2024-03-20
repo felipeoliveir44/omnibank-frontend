@@ -19,12 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
-
-
-
-
-
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 //Pagina
@@ -42,11 +37,8 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
 
-
-
-
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     CabecalhoComponent,
       FooterComponent,
@@ -85,6 +77,8 @@ import { ListagemclienteComponent } from './listagemcliente/listagemcliente.comp
     MatGridListModule,
     MatListModule,
     HttpClientModule,
+    MatAutocompleteModule
+
 
   ],
   providers: [],

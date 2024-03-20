@@ -11,6 +11,7 @@ import { ListagemcartaoComponent } from './listagemcartao/listagemcartao.compone
 import { CadastrologinComponent } from './cadastrologin/cadastrologin.component';
 import { CadastroclienteComponent } from './cadastrocliente/cadastrocliente.component';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
+import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'cadastrologin', component: CadastrologinComponent},
   {path: 'cadastrocliente', component: CadastroclienteComponent},
   {path: 'relatorios', component: RelatoriosComponent},
+  {path: 'listagemcliente', component: ListagemclienteComponent}
 
 ];
 
