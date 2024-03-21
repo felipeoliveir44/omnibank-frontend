@@ -23,6 +23,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
+
+
 //Pagina
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,9 +78,9 @@ import { ListagemclienteComponent } from './listagemcliente/listagemcliente.comp
     MatSelectModule,
     MatTableModule,
     MatGridListModule,
-    MatListModule,
     HttpClientModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatListModule
 
 
   ],
