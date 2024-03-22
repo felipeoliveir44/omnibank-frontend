@@ -1,9 +1,23 @@
 .container {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #fff;
+  margin: 30px auto;
 }
 
+.container-cards {
+  margin: 0 auto;
+  width: 400px;
+  padding: 30px;
+  text-align: center;
+}
+.botoes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
 .form-group {
+  display: flex;
+  padding: 10px;
   margin-bottom: 20px;
 }
 

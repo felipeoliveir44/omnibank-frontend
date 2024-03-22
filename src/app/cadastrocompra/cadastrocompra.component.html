@@ -1,34 +1,39 @@
 <div class="container">
-  <h2>Realizar Compra</h2>
+  
 
-  <mat-form-field class="form-group">
-    <mat-label>Cliente:</mat-label>
-    <mat-select placeholder="Selecione um cliente">
-      <mat-option value="">Selecione um cliente</mat-option>
-      <mat-option value="cliente1">Cliente 1</mat-option>
-      <mat-option value="cliente2">Cliente 2</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="container-cards">
+      <h2>Realizar Compra</h2> 
+    <mat-form-field class="form-group">
+      <mat-label>Cliente:</mat-label>
+      <mat-select placeholder="Selecione um cliente">
+        <mat-option value="">Selecione um cliente</mat-option>
+        <mat-option value="cliente1">Cliente 1</mat-option>
+        <mat-option value="cliente2">Cliente 2</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field class="form-group">
-    <mat-label>Cartão:</mat-label>
-    <mat-select placeholder="Selecione um cartão">
-      <mat-option value="">Selecione um cartão</mat-option>
-      <mat-option value="cartao1">Cartão 1</mat-option>
-      <mat-option value="cartao2">Cartão 2</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>Cartão:</mat-label>
+      <mat-select placeholder="Selecione um cartão">
+        <mat-option value="">Selecione um cartão</mat-option>
+        <mat-option value="cartao1">Cartão 1</mat-option>
+        <mat-option value="cartao2">Cartão 2</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field class="form-group">
-    <mat-label>Valor:</mat-label>
-    <input matInput type="text" id="valor" placeholder="Digite o valor">
-  </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>Valor:</mat-label>
+      <input matInput type="text" id="valor" placeholder="Digite o valor">
+    </mat-form-field>
 
-  <mat-form-field class="form-group">
-    <mat-label>Estabelecimento:</mat-label>
-    <input matInput type="text" id="estabelecimento" placeholder="Digite o nome do estabelecimento">
-  </mat-form-field>
+    <mat-form-field class="form-group">
+      <mat-label>Estabelecimento:</mat-label>
+      <input matInput type="text" id="estabelecimento" placeholder="Digite o nome do estabelecimento">
+    </mat-form-field>
 
-  <button mat-flat-button color="primary">Realizar a compra</button>
-  <button mat-flat-button>Cancelar</button>
+    <div class="botoes">
+      <button mat-flat-button color="primary">Realizar a compra</button>
+      <button mat-flat-button>Cancelar</button>
+    </div>
+  </div>
 </div>
