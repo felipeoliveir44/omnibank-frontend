@@ -3,8 +3,8 @@
     <div class="pesquisa">
         <mat-form-field>
           <input type="text" placeholder="Pesquisar" matInput [formControl]="autoCompleteClientes" [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let cliente of clientesOptions | async" [value]="cliente.nome">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
+            <mat-option *ngFor="let cliente of clientesOptions | async" [value]="cliente">
               {{ cliente.nome }}
             </mat-option>
           </mat-autocomplete>
@@ -12,13 +12,13 @@
 
         <mat-form-field>
           <mat-label>Limite</mat-label>
-          <input matInput type="number" placeholder="R$ 00,00">
+          <input matInput type="number" placeholder="R$ 00,00" [formControl]="limiteControl" #limiteInput>
         </mat-form-field>
 
     </div>
 
     <div class="botoes">
-        <button mat-flat-button color="primary">Cadastrar</button>
+        <button mat-flat-button color="primary" (click)="submitForm()">Cadastrar</button>
         <button mat-flat-button>Cancelar</button>
         <a mat-flat-button href="http://localhost:4200/alterarlimitecartao" target="_blank">Alterar Limite</a>
     </div>
