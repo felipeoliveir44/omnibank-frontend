@@ -1,10 +1,20 @@
 <div class="container">
     <img src="assets\imagenstcc\cartao.png" class="rounded mx-auto d-block" alt="...">
-
-
     <div class="pesquisa">
-    <input type="text" id="cliente" placeholder="Cliente">
-    <input type="text" id="limite" placeholder="Limite do Cartão">
+        <mat-form-field>
+          <input type="text" placeholder="Pesquisar" matInput [formControl]="autoCompleteClientes" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let cliente of clientesOptions | async" [value]="cliente.nome">
+              {{ cliente.nome }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Limite</mat-label>
+          <input matInput type="number" placeholder="R$ 00,00">
+        </mat-form-field>
+
     </div>
 
     <div class="botoes">

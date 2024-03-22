@@ -15,6 +15,7 @@ export class ClientesService {
   selecionar():Observable<any[]>{
     return this.http.get<any[]>(this.url)
   }
+  
   cadastrar(obj: any):Observable<any[]>{
     return this.http.post<any[]>(this.post, obj)
   }
