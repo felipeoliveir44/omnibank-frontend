@@ -1,21 +1,23 @@
-<!-- <mat-form-field class="example-form-field">
-  <input matInput placeholder="Pesquisar">
-  <button mat-button matSuffix mat-icon-button aria-label="Search">
-    <mat-icon>pesquisar</mat-icon>
-  </button>
-</mat-form-field> -->
-
-<mat-list role="list">
-  <mat-list-item role="listitem">Item 1</mat-list-item>
-  <mat-list-item role="listitem">Item 2</mat-list-item>
-  <mat-list-item role="listitem">Item 3</mat-list-item>
-</mat-list>
-
-<button mat-flat-button color="accent">Alterar</button>
-<button mat-flat-button color="warn">Excluir</button>
-<button mat-flat-button color="accent">Alterar</button>
-<button mat-flat-button color="warn">Excluir</button>
-<button mat-flat-button color="accent">Alterar</button>
-<button mat-flat-button color="warn">Excluir</button>
 
 
+<div class="container">
+    <h2>Lista de Clientes</h2>
+    <mat-list *ngFor="let cliente of clientes">
+        <mat-list-item class="lista">Nome do cliente: {{ cliente.nome  }}</mat-list-item>
+        <mat-list-item class="lista">CPF: {{ cliente.cpf }}</mat-list-item>
+        <mat-list-item class="lista">Telefone: {{ cliente.telefone }}</mat-list-item>
+        <mat-list-item class="lista">Email: {{ cliente.email }}</mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" routerLink="/cadastrocliente">Cadastrar novo cliente</button>
+    <!-- <mat-list>
+        <mat-list-item class="list" *ngFor="let cliente of clientes">
+        <div matLine class="test"></div>
+        <div matLine></div>
+        <div matLine>{{  }}</div>
+        <div matLine>{{ cliente.email }}</div>
+        <button mat-icon-button color="warn" (click)="excluirCliente(cliente)">
+            <mat-icon>delete</mat-icon>
+        </button>
+        </mat-list-item>
+    </mat-list>-->
+</div>
