@@ -9,25 +9,20 @@ import { HttpEvent } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CartaoserviceService {
-  private url:string = 'http://localhost:8080/cliente/listar'
-  private post:string = 'http://localhost:8080/cartoes/cadastrar'
+  private urlListarCliente: string = 'http://localhost:8080/cliente/listar'
+  private urlCadastrarCartao: string = 'http://localhost:8080/cartoes/cadastrar'
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getAutocompleteData(page: number, size: number): Observable<any[]> {
-    let params = new HttpParams()
-      .set('page', page.toString())
-      .set('size', size.toString());
-
-    return this.http.get<any[]>(this.url, { params }).pipe(
-      map((response: any) => response.content) // Correção no uso do operador 'map'
+  buscarClientesAutocomplete(nome: string): Observable<any[]> {
+    const params = new HttpParams().set('nome', nome);
+    return this.http.get<any>(this.urlListarCliente, { params }).pipe(
+      map(response => response.content)
     );
   }
 
-  cadastrar(id: any, limite: any): Observable<any[]> {
-    return this.http.post<any[]>(this.post, {id, limite });
+  cadastrar(id: any, limite:any): Observable<any> {
+    const corpoRequisicao = { id: id, limite: limite }
+    return this.http.post<any>(this.urlCadastrarCartao, corpoRequisicao);
   }
-
-
 
 }

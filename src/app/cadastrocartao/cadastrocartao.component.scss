@@ -14,15 +14,21 @@
 .pesquisa{
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  
+  mat-form-field {
 
-  input {
-    width: 200px;
-    height: 30px;
-    border-radius: 10px;
+    .mdc-text-field--filled  {
+      
+      background-color: red;
+    }
+
   }
+
+  
 }
 .matInput {
   width: 200px;
