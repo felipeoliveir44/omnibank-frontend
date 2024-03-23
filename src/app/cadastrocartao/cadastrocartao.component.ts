@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild  } from '@angular/core';
-import { CartaoserviceService } from '../cartaoservice.service';
+import { CartaoserviceService } from '../servicos/cartao/cartao.service';
 import { Cartao } from '../models/cartao';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
@@ -20,8 +20,6 @@ export class CadastrocartaoComponent implements OnInit {
   clienteControl = new FormControl();
   clientesFiltrados$: Observable<any[]>;
   clienteSelecionado!: number;
-
-  cartao = new Cartao();
   clienteCartao:Cartao[] = [];
 
   constructor(private cartaoService: CartaoserviceService) {
@@ -29,6 +27,7 @@ export class CadastrocartaoComponent implements OnInit {
       startWith(''),
       switchMap(value => this.cartaoService.buscarClientesAutocomplete(value))
     );
+
   }
 
   ngOnInit(): void {
@@ -36,7 +35,6 @@ export class CadastrocartaoComponent implements OnInit {
       startWith(''),
       switchMap(value => this.cartaoService.buscarClientesAutocomplete(value))
     );
-
   }
   
   exibirNomeEId(cliente: Cliente): string {

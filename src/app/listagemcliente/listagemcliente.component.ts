@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 // import { MatDialog } from '@angular/material/dialog';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 import { CadastroclienteComponent } from '../cadastrocliente/cadastrocliente.component';
-import { ClientesService } from '../servicos/clientes.service';
+import { ClientesService } from '../servicos/cliente/clientes.service';
 import { Observable, Subscription, startWith } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, switchMap } from 'rxjs/operators';
