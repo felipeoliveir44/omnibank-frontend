@@ -2,25 +2,26 @@
   <h1>Cadastro de Clientes</h1>
 <form (ngSubmit)="submitForm()" #clienteForm="ngForm">
   <mat-form-field>
-    <input matInput placeholder="Nome" name="nome" [(ngModel)]="cliente.nome" required>
+    <input matInput placeholder="Nome" name="nome" [(ngModel)]="cliente.nome" >
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="CPF" name="CPF" [(ngModel)]="cliente.cpf" required>
+    <input matInput placeholder="CPF" name="CPF" [(ngModel)]="cliente.cpf" >
   </mat-form-field>
 
 
   <mat-form-field>
-    <input matInput placeholder="Email" name="email" [(ngModel)]="cliente.email" required email>
+    <input matInput placeholder="Email" name="email" [(ngModel)]="cliente.email"  email>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Phone number</mat-label>
-    <input matInput placeholder="Telefone" name="telefone" [(ngModel)]="cliente.telefone" required>
+    <input matInput placeholder="Telefone" name="telefone" [(ngModel)]="cliente.telefone">
     <example-tel-input formControlName="Telefone" [(ngModel)]="cliente.telefone" required></example-tel-input>
     <mat-icon matSuffix>phone</mat-icon>
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+  <button mat-raised-button color="primary" routerLink="../listagemcliente">Listar clientes</button>
 </form>
 </div>

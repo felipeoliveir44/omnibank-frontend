@@ -1,6 +1,19 @@
+.container {
+    max-width: 1200px;
+    height: auto;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #f0f0f0;
+}
+
+
 .reports-page {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 30px auto;
+  color: #fff;
 
   mat-divider {
     margin: 10px 0;
@@ -12,6 +25,10 @@
     &:hover {
       background-color: #f0f0f0;
     }
+  }
+
+  .items {
+    height: auto;
   }
 }
 

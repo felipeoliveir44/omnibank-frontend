@@ -21,8 +21,8 @@ export class CadastroclienteComponent{
 
   // selecionar(){
   //   this.service.selecionar().subscribe(retorno =>{
-  //     this.client=retorno
-  //     console.log(this.client)
+  //     this.cliente=retorno
+  //     console.log(this.cliente)
   //   })
   // }
   submitForm() {

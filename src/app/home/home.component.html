@@ -1,41 +1,160 @@
-<!-- dashboard.component.html -->
-
-<!-- <div class="dashboard-container">
-  <mat-grid-list cols="4" rowHeight="200px">
-    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title class="card-title">{{tile.title}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="card-content">
-          <p class="card-text">Conteúdo do {{tile.content}}</p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div> -->
+<main>
+  <article>
+      <img  class="imagem"src="assets\imagenstcc\predio.png" alt="">
+  </article>
+</main>
 
 
-<div class="dashboard">
-  <div class="card">
-    <h3>Saldo Atual</h3>
-    <p>R$ 10.000,00</p>
+<!--sessão sobre-->
+
+<section class="about" id="about">
+  <div class="max-width">
+      <h2 class="title">Sobre</h2>
+      <div class="about-content">
+          <div class="column left">
+              <img src="assets\imagenstcc\omnilogo.png" alt="">
+          </div>
+          <div class="column right">
+             <h2 class="outro">Quem somos</h2>
+              <p class="texto">Surgimos partir da união tradicional integrador TOTVS e profissionais com mais de 10 anos de projetos de software de gestão-ERP, produtividade e colaboração.
+                A OmniBank é uma consultoria independente especializada em soluções de sistema de gestão TOTVS. Nossos profissionais possuem mais de 10 anos de experiência em projetos estratégicos de Software de Gestão, Produtividade e Colaboração. Atualmente é reconhecida como a principal referência em suporte e serviços em soluções para sistemas do tipo.c</p>
+
+          </div>
+      </div>
   </div>
-  <div class="card">
-    <h3>Despesas Recentes</h3>
-    <p>Última despesa: R$ 500,00</p>
+</section>
+
+<!--sessão serviços-->
+
+<section class="services" id="services">
+
+  <div class="max-width">
+      <h2 class="title">Objetivos</h2>
+      <div class="serv-content">
+         <div class="card">
+             <div class="box">
+
+              <div class="text">Missão</div>
+              <p>Executar websites organizados e criativos para capacitar e facilitar a informação e a comunicação entre as pessoas.
+                </p>
+             </div>
+         </div>
+
+         <div class="card">
+          <div class="box">
+
+           <div class="text">Visão</div>
+           <p>É ser referência no mercado tecnológico dedicando nossos talentos a criação de websites criativos de qualidade.</p>
+          </div>
+      </div>
+
+      <div class="card">
+          <div class="box">
+
+           <div class="text">Valores</div>
+           <p>Criatividade;
+            Excelência;
+            Ética;
+            Acessibilidade;
+            Compromisso;
+            Trabalho em equipe.
+            </p>
+          </div>
+      </div>
+      </div>
   </div>
-  <div class="card">
-    <h3>Gráfico de Rendimento</h3>
-    <div class="chart-container">
-      <!-- Adicione seu gráfico aqui -->
-    </div>
-  </div>
-  <div class="card">
-    <h3>Últimas Transações</h3>
-    <p>Transação 1: R$ 200,00</p>
-    <p>Transação 2: R$ 300,00</p>
-  </div>
-</div>
+</section>
 
 
+<!--equipe-->
+
+<section class="teams" id="teams">
+  <div class="max-width">
+      <h2 class="title">Equipe</h2>
+     <div class="carousel owl-carousel ">
+         <div class="card">
+             <div class="box">
+                 <img src="assets\imagenstcc\arthur.png" alt="Arthur Florence">
+                 <div class="text">Arthur Florence</div>
+             </div>
+         </div>
+
+         <div class="card">
+          <div class="box">
+              <img src="assets\imagenstcc\leticia.png" alt="Leticia">
+              <div class="text">Leticia Lima</div>
+          </div>
+      </div>
+
+      <div class="card">
+          <div class="box">
+              <img src="assets\imagenstcc\liz.png" alt="Luiz">
+              <div class="text">Luiz Felipe</div>
+          </div>
+      </div>
+
+      <div class="card">
+          <div class="box">
+              <img src="assets\imagenstcc\ingrid.png" alt="ingrid">
+              <div class="text">Ingrid Lima</div>
+          </div>
+      </div>
+
+      <div class="card">
+          <div class="box">
+              <img src="assets\imagenstcc\nat.png" alt="">
+              <div class="text">Nathalya Lima</div>
+          </div>
+
+      </div >
+
+     </div>
+  </div>
+
+  <section class="cart" id="about">
+  <div class="max-width">
+    <h2 class="title">Cartão</h2>
+    <div class="serv-content">
+  <div class="div-cartao">
+    <img class="cartao" src="assets\imagenstcc\cartao.png" alt="">
+  </div>
+
+  <div class="informacao">
+    <div class="column right">
+    <h3 class="omni">Conte com a Omni </h3>
+    <h4> para renegociar seu cartão de crédito
+      Tenha benefícios
+    </h4>
+
+    <h4>exclusivos na renegociação de cartões Omni.</h4>
+
+  </div>
+  </div>
+
+
+  <!-- <main class="cards">
+    <section class="card contact">
+        <div class="icon">
+            <img src="assets/Chat.png" alt="Contact us.">
+        </div>
+        <h3>Compras realizadas</h3>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <button>Vizualizar</button>
+    </section>
+    <section class="card shop">
+        <div class="icon">
+            <img src="assets/Bag.png" alt="Shop here.">
+        </div>
+        <h3>Compras de maior valor</h3>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <button>Visualizar</button>
+    </section>
+    <section class="card about">
+        <div class="icon">
+            <img src="assets/Play.png" alt="About us.">
+        </div>
+        <h3>Não realizaram compras</h3>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <button>Vizualizar</button>
+    </section>
+</main> -->

@@ -1,14 +1,27 @@
 <div class="container">
-<img src="assets\imagenstcc\cartao.png" class="rounded mx-auto d-block" alt="...">
-</div>
+    <img src="assets\imagenstcc\cartao.png" class="rounded mx-auto d-block" alt="...">
+    <div class="pesquisa">
 
-<div class="pesquisa">
-<input type="text" id="cliente" placeholder="Cliente">
-<input type="text" id="limite" placeholder="Limite do Cartão">
-</div>
+      <mat-form-field>
+        <input type="text" placeholder="Digite o nome do cliente" matInput [formControl]="clienteControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let cliente of clientesFiltrados$ | async" [value]="cliente.nome" (onSelectionChange)="selecionarCliente(cliente)">
+            {{ cliente.nome }} (ID: {{ cliente.id }})
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
 
-<button mat-flat-button color="primary">Cadastrar</button>
-<button mat-flat-button>Cancelar</button>
-<a mat-flat-button href="http://localhost:4200/alterarlimitecartao" target="_blank">Alterar Limite</a>
+      <mat-form-field>
+        <mat-label>Limite</mat-label>
+        <input matInput type="number" placeholder="R$ 00,00"  (input)="limiteEscolhido($event)">
+      </mat-form-field>
+
+      <div class="botoes">
+        <button mat-flat-button color="primary" (click)="submitForm()">Cadastrar</button>
+        <button mat-flat-button>Cancelar</button>
+        <a mat-flat-button href="http://localhost:4200/alterarlimitecartao" target="_blank">Alterar Limite</a>
+    </div>
+    
+</div>
 
 

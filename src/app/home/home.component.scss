@@ -1,30 +1,370 @@
-/* dashboard.component.css */
+.max-width{
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
 
-.dashboard {
+.imagem{
+  width: 100vw;
+  height: 400px;
+  display: block;
+  filter: grayscale(70%);
+
+  }
+
+  .div-cartao {
+    padding: 30px 50px 30px 50px;
+  }
+
+  .cartao{
+    box-shadow: 5px 5px 5px 5px rgb(35, 185, 122);
+  }
+
+/*  Home   inicio  */
+
+body{
+  background-color: rgb(34, 34, 34);
+  color: white;
+  font-family: poppinsregular;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+article{
+display: flex;
+
+}
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title{
+  flex-direction: column;
+  line-height: 10px;
+}
+
+li{
+  display: inline-block;
+  margin: 20px;
+}
+
+a{
+  color: white;
+}
+
+a:hover{
+  color: rgb(132, 14, 201);
+  transition: 0.3s all;
+}
+
+h1{
+  font-weight: 200;
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+h2{
+  font-size: 40px;
+  line-height: 10px;
+  font-family: poppinsmedium;
+}
+
+span{
+  color: rgb(132, 14, 201);
+}
+.texto{
+  color: #000000;
+}
+.text{
+  color: #fff;
+}
+p{
+  line-height: 20px;
+  max-width: 500px;
+  color: #fcfcfc;
+}
+
+img{
+  width: 580px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+form [type="submit"]{
+  height: 50px;
+  width: 50%;
+  background-color: rgb(132, 14, 201);
+  color: white;
+  font-weight: bold;
+}
+form [type="submit"]:hover{
+  cursor: pointer;
+}
+
+input{
+  margin-top: 20px;
+  height: 20px;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 760px){
+
+  main{
+      flex-direction: column;
+  }
+
+  h2{
+      font-size: 38px;
+  }
+
+  form{
+      margin: 0 auto;
+      width: 100%;
+  }
+
+  input{
+      align-self: center;
+  }
+
+  img{
+      display: none;
+  }
+
+  ul{
+      text-align: center;
+  }
+}
+
+
+/*  todos os codigos similares  */
+section{
+  padding: 100px 0;
+}
+section .title{
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  position: relative;
+}
+section .title::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 180px;
+  height: 3px;
+  background: #000000;
+  transform: translateX(-50%);
+}
+section .title::after{
+  position: absolute;
+  bottom:-12px;
+  left: 50%;
+  font-size: 20px;
+  background: #ffffff;
+  color: #c53dd1;
+  padding: 5px;
+  transform: translateX(-50%);
+}
+
+.about .about-content,
+.services .serv-content,
+.contact .contact-content{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.card {
-  width: 300px;
-  margin-bottom: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
+/*  sessão sobre  */
 
-.card:hover {
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+.about .title::after{
+  content: "Quem somos";
 }
-
-.card h3 {
+.about .about-content .left{
+  width: 45%;
+}
+.about .about-content .right{
+  width: 55%;
+}
+.about .about-content .right .text{
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.about .about-content .right .text span{
+  color: #c53dd1;
+}
+.about .about-content .right p{
+  text-align: justify;
+}
+.about .about-content .right a{
+  display: inline-block;
+  background: #c53dd1;
+  color: #fff;
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-weight: 500;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid #c53dd1;
+  transition: all 0.3s ease;
+}
+.about .about-content .right a:hover{
+  color: #c53dd1;
+  background: none;
+}
+.about .about-content .left img{
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+/*  sessão serviços */
+.services, .teams{
+  background: #000000;
+  color: #fff;
+}
+.services .title::before,
+.teams .title::before{
+  background: #fff;
+}
+.services .title::after,
+.teams .title::after{
+  background: #111;
+  content: "nossa finalidade";
+}
+.services .serv-content .card{
+  width: calc(33% - 20px);
+  background: #222;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.services .serv-content .card:hover{
+  background: #c53dd1;
+}
+.services .serv-content .card .box{
+  transition: all 0.3s ease;
+}
+.services .serv-content .card:hover .box{
+  transform: scale(1.05);
+}
+.services .serv-content .card ion-icon{
+  font-size: 70px;
+  color: #c53dd1;
+}
+.services .serv-content .card:hover ion-icon{
+  color: #fff;
+}
+.services .serv-content .card .text{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
 }
 
-.card p {
-  font-size: 16px;
+
+/*  sessão equipe  */
+.teams .title::after{
+  content: "nosso time";
+}
+
+.teams .carousel .card{
+  background: #202020;
+  border-radius: 6px;
+  padding: 25px 35px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.teams .carousel .card:hover{
+  background: #c53dd1;
+}
+.teams .carousel .card img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #c53dd1;
+  transition: all 0.3s ease;
+}
+.teams .carousel .card:hover img{
+  border-color: #fff;
+}
+.teams .carousel .card .box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.teams .carousel .card:hover .box{
+  transform: scale(1.05);
+}
+.teams .carousel .card .text{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+.owl-dots{
+  text-align: center;
+  margin-top: 20px;
+}
+.owl-dot{
+  width: 14px;
+  height: 14px;
+  outline: none!important;
+  border-radius: 50%;
+  border: 2px solid #c53dd1!important;
+  transition: all 0.3s ease;
+}
+.owl-dot.active{
+  width: 35px;
+  border-radius: 15px;
+}
+.owl-dot.active,
+.owl-dot:hover{
+  background: #c53dd1!important;
+}
+
+// cartão
+.cart .title::after{
+  content: "nosso cartão";
+}
+
+
+h3.omni{
+  line-height: 28px;
+  text-align: right;
+  font-family: Battambang;
+  font-size: 40px;
+  color:rgb(35, 185, 122);
+  height: 60px;
+
+}
+
+h4{
+  line-height: 10px;
+  text-align: right;
+  font-family: CabinCondensed;
+  font-size: 20px;
 }
