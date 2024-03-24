@@ -1,13 +1,30 @@
-
-
 <div class="container">
-    <div class="header">
-    <h2>Alterar limite</h2>
-  </div>
-    <div class="pesquisa">  
+  <div class="pesquisa">
+    <div *ngIf="cartaoSelecionado">
+      <h2>Dados do Cartão Selecionado</h2>
+      <mat-list-item class="lista">Número do cartão: {{ cartaoSelecionado.numeroCartao }}
+      </mat-list-item>
+      <mat-list-item class="lista">Cliente: {{ cartaoSelecionado.nomeCliente }}</mat-list-item
+      >
+      <mat-list-item class="lista">Limite: R$ {{ cartaoSelecionado.limiteCartao }}</mat-list-item
+      >
+      <mat-list-item class="lista">Validade: {{ cartaoSelecionado.dataValidade }}
+      </mat-list-item>
     </div>
-    
-      <div class="buttons">
-          <button mat-raised-button color="primary" routerLink="/alterarlimitecartao" class="botoes-acoes">Alterar limite</button>
-      </div>
+    <div *ngIf="!cartaoSelecionado">
+      <p>Nenhum cartão selecionado.</p>
+    </div>
+    <div class="buttons">
+      <h2>Digite o novo limite</h2>
+      <input type="number" [(ngModel)]="novoLimite">
+      <button
+        mat-raised-button
+        color="primary"
+        class="botoes-acoes"
+        (click)="atualizarLimite(cartaoSelecionado.id, novoLimite)"
+      >
+        Alterar limite
+      </button>
+    </div>
   </div>
+</div>
