@@ -22,6 +22,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -82,7 +83,8 @@ import { ListagemclienteComponent } from './listagemcliente/listagemcliente.comp
     HttpClientModule,
     MatAutocompleteModule,
     MatListModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSnackBarModule
 
 
   ],
