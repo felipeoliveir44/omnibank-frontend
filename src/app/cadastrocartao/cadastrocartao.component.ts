@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild  } from '@angular/core';
-import { CartaoserviceService } from '../cartaoservice.service';
+import { CartaoserviceService } from '../servicos/cartao/cartao.service';
 import { Cartao } from '../models/cartao';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
@@ -7,6 +7,7 @@ import { startWith, map, switchMap, debounceTime, distinctUntilChanged } from 'r
 import { AsyncPipe } from '@angular/common';
 import { Cliente } from '../models/cliente';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Router } from '@angular/router';
 
 
 
@@ -20,15 +21,15 @@ export class CadastrocartaoComponent implements OnInit {
   clienteControl = new FormControl();
   clientesFiltrados$: Observable<any[]>;
   clienteSelecionado!: number;
-
-  cartao = new Cartao();
   clienteCartao:Cartao[] = [];
 
-  constructor(private cartaoService: CartaoserviceService) {
+  constructor(private cartaoService: CartaoserviceService, private router: Router) {
+    
     this.clientesFiltrados$ = this.clienteControl.valueChanges.pipe(
       startWith(''),
       switchMap(value => this.cartaoService.buscarClientesAutocomplete(value))
     );
+    
   }
 
   ngOnInit(): void {
@@ -36,7 +37,6 @@ export class CadastrocartaoComponent implements OnInit {
       startWith(''),
       switchMap(value => this.cartaoService.buscarClientesAutocomplete(value))
     );
-
   }
   
   exibirNomeEId(cliente: Cliente): string {
@@ -75,5 +75,6 @@ export class CadastrocartaoComponent implements OnInit {
       this.clienteCartao = dados;
       console.log(this.clienteCartao);
     });
+    this.router.navigate(['/listagemcartao']);
   }
 }

@@ -1,11 +1,18 @@
+import { Cliente } from "./cliente";
 
-export class Cartao{
-  id:number = 0;
-  numero:string = "";
-  validade:string = "";
-  cvv:string = "";
-  limite:number = 0;
-  status:number = 0;
-  id_cliente:number = 0;
+export interface CartaoResponse {
+  content: Cartao[]; // Array de cartões
+  // Outras propriedades de paginação, se necessário
 }
-  
+
+export interface Cartao{
+  id:number;
+  numeroCartao:string;
+  dataValidade:string;
+  cvv:string;
+  limiteCartao:number;
+  status:boolean;
+  id_cliente:number;
+  nomeCliente:Cliente;
+}
+
