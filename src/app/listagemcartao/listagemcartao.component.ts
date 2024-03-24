@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, Subject, debounceTime, map, startWith, switchMap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { Page } from '../models/page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listagemcartao',
@@ -19,7 +20,7 @@ export class ListagemcartaoComponent {
   cpfDigitado: string = '';
   numeroDigitado: string = '';
 
-  constructor(private cartaoService: CartaoserviceService, private _snackBar: MatSnackBar) {}
+  constructor(private cartaoService: CartaoserviceService, private _snackBar: MatSnackBar, private router:Router) {}
 
   ngOnInit(): void {
     this.carregarCartoes();
@@ -87,6 +88,7 @@ export class ListagemcartaoComponent {
       (response) => {
         console.log('Status atualizado com sucesso!');
         this.carregarCartoes(); // Atualiza a lista após a atualização do status
+        
       },
       (erro) => {
         this.exibirSnackBarErro('Erro ao atualizar o status do cartão. Por favor, tente novamente.');
@@ -94,6 +96,14 @@ export class ListagemcartaoComponent {
     );
   }
 
+  enviarDadosParaProximaPagina(cartao: Cartao): void {
+    // Supondo que a rota para a próxima página seja '/alterarlimitecartao'
+    const rotaNovaPagina = `/alterarlimitecartao`;
+    
+    // Navega para a próxima página e passa os dados do cartão através do objeto state
+    this.router.navigate([rotaNovaPagina], { state: { cartaoSelecionado: cartao } });
+  }
+  
   private exibirSnackBarErro(mensagem: string): void {
     this._snackBar.open(mensagem, 'Fechar', {
       duration: 5000,

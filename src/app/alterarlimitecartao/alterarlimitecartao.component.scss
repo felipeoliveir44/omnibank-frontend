@@ -1,0 +1,73 @@
+h2 {
+    margin: 0;
+    color: #fff;
+  }
+  
+  .button {
+    margin-left: 20px;
+  }
+  
+  
+  
+  mat-list-item {
+    height: auto;
+    border: 1px solid #ccc;
+  
+    .test {
+      height: auto;
+    }
+    .botoes-acoes {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      width: 200px;
+      height: 50px;
+    }
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .pesquisa {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: center;
+    gap: 30px;
+  
+    input {
+      width: 300px;
+      height: 30px;
+      border-radius: 5px;
+    }
+  }
+  .container {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    max-width: 1200px; 
+  
+      .lista {
+          width: auto;
+      }
+  
+      button {
+          width: 300px;
+          height: 50px;
+      }
+  }
+  
+  .buttons {
+    margin: 40px 0px;
+    display: flex;
+    gap:30px
+  }
+  
+  
