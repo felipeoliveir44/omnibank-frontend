@@ -1,3 +1,4 @@
+
 .max-width{
   max-width: 1300px;
   padding: 0 80px;
@@ -5,10 +6,13 @@
 }
 
 .imagem{
-  width: 100vw;
-  height: 400px;
-  display: block;
+
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: grayscale(70%);
+
 
   }
 
@@ -17,7 +21,8 @@
   }
 
   .cartao{
-    box-shadow: 5px 5px 5px 5px rgb(35, 185, 122);
+    box-shadow: 5px 5px 500px 5px #52ffae;
+    border-radius: 10px;
   }
 
 /*  Home   inicio  */
@@ -25,7 +30,8 @@
 body{
   background-color: rgb(34, 34, 34);
   color: white;
-  font-family: poppinsregular;
+    font-family: "Ubuntu", sans-serif;
+
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px;
@@ -74,15 +80,34 @@ main{
 h2{
   font-size: 40px;
   line-height: 10px;
-  font-family: poppinsmedium;
+  font-family: "Ubuntu", sans-serif;
 }
 
 span{
   color: rgb(132, 14, 201);
 }
-.texto{
-  color: #000000;
+.container-sobre {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo-omnibank {
+      width: 400px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 20px;
+  }
+
+  .colum-right {
+      color: #fff;
+      width: 40%;
+      text-align: justify;
+      font-size: 1.2rem;
+  }
 }
+
 .text{
   color: #fff;
 }
@@ -179,7 +204,7 @@ section .title::after{
   bottom:-12px;
   left: 50%;
   font-size: 20px;
-  background: #ffffff;
+  background: #011627;
   color: #c53dd1;
   padding: 5px;
   transform: translateX(-50%);
