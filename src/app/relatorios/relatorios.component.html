@@ -1,26 +1,36 @@
-<div class="container">
-  <mat-card class="reports-page">
-    <mat-card-header>
-      <mat-card-title>Relatórios Bancários</mat-card-title>
-    </mat-card-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item class="items">
-          <h3 mat-line>Saldo Atual</h3>
-          <p mat-line>R$ 10.000,00</p>
-        </mat-list-item>
-        <mat-divider mat-inset></mat-divider>
-        <mat-list-item class="items">
-          <h3 mat-line>Receitas do Mês</h3>
-          <p mat-line>R$ 5.000,00</p>
-        </mat-list-item>
-        <mat-divider mat-inset></mat-divider>
-        <mat-list-item class="items">
-          <h3 mat-line>Despesas do Mês</h3>
-          <p mat-line>R$ 3.000,00</p>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab label="Relatório Gasto por Categoria">
+    <div class="gasto-categoria">
+
+      <div class="selecionar-cartao">
+        <mat-form-field>
+          <mat-label>Selecione o Cartão</mat-label>
+          <mat-select>
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <button mat-raised-button color="accent">Visualizar</button>
+
+      <div class="list-container">
+        <mat-list role="Categoria">
+          <h1>Categoria</h1>
+          <mat-list-item role="listitem">Item 1</mat-list-item>
+        </mat-list>
+
+        <mat-list role="Valor Gasto">
+          <h1>Valor Gasto</h1>
+          <mat-list-item role="listitem">Item 1</mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Second">Content 2</mat-tab>
+  <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group>

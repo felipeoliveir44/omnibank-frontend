@@ -1,34 +1,35 @@
-.container {
-    max-width: 1200px;
-    height: auto;
-    margin: 30px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    background-color: #f0f0f0;
+.gasto-categoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.selecionar-cartao {
+  margin-bottom: 20px;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between; // Para espaçamento igual entre os elementos
+  width: 50%;
+
+
 }
 
 
-.reports-page {
-  width: 90%;
-  margin: 30px auto;
-  color: #fff;
-
-  mat-divider {
-    margin: 10px 0;
-  }
-
-  mat-list-item {
-    cursor: pointer;
-
-    &:hover {
-      background-color: #f0f0f0;
-    }
-  }
-
-  .items {
-    height: auto;
-  }
+.mat-tab-group {
+  margin-bottom: 48px;
 }
 
+.mat-list {
+  flex: 1;  // Para ocupar o espaço disponível e evitar que as listas se sobreponham
+  margin-right: 20px;  // Opcional: Adiciona um espaço entre as listas
+}
+
+
+h1 {
+  color: aliceblue;
+  border-bottom: 2px solid rgb(84, 24, 153);
+}
