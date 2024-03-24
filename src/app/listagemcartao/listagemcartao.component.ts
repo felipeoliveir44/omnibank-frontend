@@ -102,9 +102,7 @@ export class ListagemcartaoComponent {
     });
   }
 
-  aoClicarNoBotao(): void {
-    console.log('Botão clicado!');
-  }
+  
 
   // irParaPrimeiraPagina(): void {
   //   this.paginaAtual = 0;

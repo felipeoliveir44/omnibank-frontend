@@ -84,7 +84,7 @@ import { ListagemclienteComponent } from './listagemcliente/listagemcliente.comp
     MatAutocompleteModule,
     MatListModule,
     MatDatepickerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
 
 
   ],

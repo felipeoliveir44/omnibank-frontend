@@ -14,6 +14,7 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
 
 
+
 const routes: Routes = [
   {path:'', component : HomeComponent},
   {path:'cabecalho', component : CabecalhoComponent},
