@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable, map } from 'rxjs';
+import { Cliente } from 'src/app/models/cliente';
+import { Page } from 'src/app/models/page';
 
   
   
@@ -29,23 +31,16 @@ export class ClientesService {
 
   
 
-  selecionar():Observable<any[]>{
+  listar(pagina: number): Observable<Page<Cliente>> {
+    return this.http.get<Page<Cliente>>(`${this.url}?page=${pagina}`);
+  }
 
-    return this.http.get<any[]>(this.url)
-
-  }
-
-  cadastrar(obj: any):Observable<any[]>{
-
+ cadastrar(obj: any):Observable<any[]>{
     return this.http.post<any[]>(this.post, obj)
-
   }
 
   deletarCliente(clienteId: number): Observable<any> {
-
     const url = `${this.delete}${clienteId}`;
-
     return this.http.delete<any>(url);
-
   }
 }

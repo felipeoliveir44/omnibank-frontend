@@ -34,30 +34,20 @@ export class ListagemcartaoComponent {
         console.log('Página de Cartões:', this.cartoes);
       },
       (erro) => {
-        this._snackBar.open('Ocorreu um erro ao carregar os cartões. Por favor, tente novamente.', 'Fechar', {
-          duration: 5000, // Duração em milissegundos
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
+        this.exibirSnackBarErro('Erro ao carregar os cartões. Por favor, tente novamente.');
       }
     );
   }
 
   buscarCartoesPorCpf(): void {
     if (this.cpfDigitado.trim() !== '') {
-      this.cartaoService.listarCartaoCpf(this.cpfDigitado).pipe(
-        debounceTime(300)
-      ).subscribe(
+      this.cartaoService.listarCartaoCpf(this.cpfDigitado).subscribe(
         (page: Page<Cartao>) => {
           this.cartoes = page.content;
           console.log('Cartões encontrados por CPF:', this.cartoes);
         },
         (erro) => {
-          this._snackBar.open('Ocorreu um erro ao carregar os cartões. Por favor, tente novamente.', 'Fechar', {
-            duration: 5000, // Duração em milissegundos
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom',
-          });
+          this.exibirSnackBarErro('Erro ao buscar cartões por CPF. Por favor, tente novamente.');
         }
       );
     } else {
@@ -67,19 +57,13 @@ export class ListagemcartaoComponent {
 
   buscarCartoesPorNumero(): void {
     if (this.numeroDigitado.trim() !== '') {
-      this.cartaoService.listarCartaoNumero(this.numeroDigitado).pipe(
-        debounceTime(300)
-      ).subscribe(
+      this.cartaoService.listarCartaoNumero(this.numeroDigitado).subscribe(
         (page: Page<Cartao>) => {
           this.cartoes = page.content;
           console.log('Cartões encontrados por número:', this.cartoes);
         },
         (erro) => {
-          this._snackBar.open('Ocorreu um erro ao carregar os cartões. Por favor, tente novamente.', 'Fechar', {
-            duration: 5000, // Duração em milissegundos
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom',
-          });
+          this.exibirSnackBarErro('Erro ao buscar cartões por número. Por favor, tente novamente.');
         }
       );
     } else {
@@ -93,34 +77,34 @@ export class ListagemcartaoComponent {
     } else if (this.numeroDigitado.trim() !== '') {
       this.buscarCartoesPorNumero();
     } else {
-      this._snackBar.open('Ocorreu um erro ao carregar os cartões. Por favor, tente novamente.', 'Fechar', {
-        duration: 5000, // Duração em milissegundos
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
+      this.exibirSnackBarErro('Preencha pelo menos um dos campos.');
       this.cartoes = this.cartoesSalvos; // Retorna os valores originais
     }
   }
 
-  // Método para atualizar o status
   atualizarStatus(cartaoId: number, novoStatus: number): void {
     this.cartaoService.atualizarStatusCartao(cartaoId, novoStatus).subscribe(
       (response) => {
         console.log('Status atualizado com sucesso!');
-        // Atualize os dados na interface, se necessário
-        this.carregarCartoes(); // Exemplo de método para recarregar os dados
+        this.carregarCartoes(); // Atualiza a lista após a atualização do status
       },
       (erro) => {
-        this._snackBar.open('Ocorreu um erro ao carregar os cartões. Por favor, tente novamente.', 'Fechar', {
-          duration: 5000, // Duração em milissegundos
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
+        this.exibirSnackBarErro('Erro ao atualizar o status do cartão. Por favor, tente novamente.');
       }
     );
   }
-  
 
+  private exibirSnackBarErro(mensagem: string): void {
+    this._snackBar.open(mensagem, 'Fechar', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
+  }
+
+  aoClicarNoBotao(): void {
+    console.log('Botão clicado!');
+  }
 
   // irParaPrimeiraPagina(): void {
   //   this.paginaAtual = 0;

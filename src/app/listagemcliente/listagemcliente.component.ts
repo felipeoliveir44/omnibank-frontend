@@ -6,6 +6,8 @@ import { ClientesService } from '../servicos/cliente/clientes.service';
 import { Observable, Subscription, startWith } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, switchMap } from 'rxjs/operators';
+import { Cliente } from '../models/cliente';
+import { Page } from '../models/page';
 
 @Component({
   selector: 'app-listagemcliente',
@@ -15,7 +17,9 @@ import { map, switchMap } from 'rxjs/operators';
 
 export class ListagemclienteComponent implements OnInit {
 
-  clientes : any;
+  paginaAtual: number = 0;
+  paginaCartoes: Page<Cliente> = { content: [], totalPages: 0, totalElements: 0 };
+  cliente: Cliente[] = [];
 
   constructor(
     private clienteService: ClientesService,
@@ -24,10 +28,20 @@ export class ListagemclienteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.clienteService.selecionar().subscribe(data => {
-      this.clientes = data
-      console.log(this.clientes)
-    })
+    this.carregarCliente();
+  }
+
+  carregarCliente(): void {
+    this.clienteService.listar(this.paginaAtual).subscribe(
+      (page: Page<Cliente>) => {
+        this.paginaCartoes = page;
+        this.cliente = page.content;
+        console.log('Página de Cartões:', this.cliente);
+      },
+      (erro) => {
+        console.log("erro");
+      }
+    );
   }
 
 

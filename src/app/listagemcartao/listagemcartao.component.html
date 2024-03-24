@@ -10,7 +10,7 @@
     <mat-label>Pesquisar</mat-label>
       <input matInput [(ngModel)]="numeroDigitado" placeholder="Digite o número do cartão" type="text">
       <input type="text" [(ngModel)]="cpfDigitado" placeholder="Digite o CPF">
-      <button mat-raised-button color="primary" class="botoes-acoes" (click)="executarPesquisa()">Pesquisar</button>
+      <button mat-raised-button color="primary" class="botoes-acoes" (click)="executarPesquisa()" *ngIf="aoClicarNoBotao()">Pesquisar</button>
       
   </div>
   <mat-list *ngFor="let cartao of cartoes">
