@@ -18,6 +18,7 @@ export class CartaoserviceService {
   private urlListarCartaoCpf: string = 'http://localhost:8080/cartoes/listar/cpf'
   private urlListarCartaoNumero: string = 'http://localhost:8080/cartoes/listar/numero'
   private urlAtualizarStatus: string = 'http://localhost:8080/cartoes/atualizarStatus'
+  private urlAtualizarLimite: string = 'http://localhost:8080/cartoes/atualizarLimite'
   constructor(private http: HttpClient) {}
 
   buscarClientesAutocomplete(nome: string): Observable<any[]> {
@@ -49,4 +50,11 @@ export class CartaoserviceService {
     const dados = { id: cartaoId, status: novoStatus };
     return this.http.put(url, dados); // Envie uma requisição PUT com os dados necessários
   }
+
+  atualizarLimiteCartao(cartaoId: number, limite:number): Observable<Cartao> {
+    const url = `${this.urlAtualizarLimite}`;
+    const dados = {id:cartaoId, limite: limite}
+    return this.http.put<Cartao>(url, dados);
+  }
+  
 }
