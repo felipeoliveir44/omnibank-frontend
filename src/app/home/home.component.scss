@@ -1,119 +1,170 @@
-.max-width{
+.max-width {
   max-width: 1300px;
   padding: 0 80px;
   margin: auto;
 }
 
-.imagem{
-  width: 100vw;
-  height: 400px;
-  display: block;
+.banner {
+
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: grayscale(70%);
+}
 
-  }
+.div-cartao {
+  padding: 30px 50px 30px 50px;
+}
 
-  .div-cartao {
-    padding: 30px 50px 30px 50px;
-  }
-
-  .cartao{
-    box-shadow: 5px 5px 5px 5px rgb(35, 185, 122);
-  }
+.cartao {
+  box-shadow: 5px 5px 50px 5px #52ffae;
+  border-radius: 10px;
+}
 
 /*  Home   inicio  */
 
-body{
+body {
   background-color: rgb(34, 34, 34);
   color: white;
-  font-family: poppinsregular;
+  font-family: "Ubuntu", sans-serif;
+
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px;
 }
 
-article{
-display: flex;
+article {
+  display: flex;
 
 }
-header{
+
+header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.title{
+.title {
   flex-direction: column;
+  color: white;
   line-height: 10px;
 }
 
-li{
+li {
   display: inline-block;
   margin: 20px;
 }
 
-a{
+a {
   color: white;
 }
 
-a:hover{
+a:hover {
   color: rgb(132, 14, 201);
   transition: 0.3s all;
 }
 
-h1{
+h1 {
   font-weight: 200;
 }
 
-main{
+main {
   display: flex;
   flex-direction: row;
   margin-top: 50px;
 }
 
-h2{
+h2 {
   font-size: 40px;
   line-height: 10px;
-  font-family: poppinsmedium;
+  font-family: "Ubuntu", sans-serif;
 }
 
-span{
+span {
   color: rgb(132, 14, 201);
 }
-.texto{
-  color: #000000;
-}
-.text{
-  color: #fff;
-}
-p{
-  line-height: 20px;
-  max-width: 500px;
-  color: #fcfcfc;
+
+.container-sobre {
+  height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .logo-omnibank {
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-right: 20px;
+  }
+
+  .title-quem-somos {
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .colum-right {
+    color: white;
+    width: 40%;
+    text-align: justify;
+    font-size: 1.2rem;
+  }
 }
 
-img{
+.nome-equipe {
+  margin: 1rem;;
+  color: white;
+  font-size: x-large;
+}
+
+.container-cartao {
+  height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.texto-cartao {
+  text-align: center;
+  color: white;
+  text-align: right;
+  font-family: Roboto, sans-serif;
+  padding: 20px;
+
+}
+
+p {
+  line-height: 20px;
+  max-width: 500px;
+  color: white;
+}
+
+img {
   width: 580px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
 
-form [type="submit"]{
+form [type="submit"] {
   height: 50px;
   width: 50%;
   background-color: rgb(132, 14, 201);
   color: white;
   font-weight: bold;
 }
-form [type="submit"]:hover{
+
+form [type="submit"]:hover {
   cursor: pointer;
 }
 
-input{
+input {
   margin-top: 20px;
   height: 20px;
   padding: 15px;
@@ -122,40 +173,41 @@ input{
   font-size: 15px;
 }
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 760px) {
 
-  main{
-      flex-direction: column;
+  main {
+    flex-direction: column;
   }
 
-  h2{
-      font-size: 38px;
+  h2 {
+    font-size: 38px;
   }
 
-  form{
-      margin: 0 auto;
-      width: 100%;
+  form {
+    margin: 0 auto;
+    width: 100%;
   }
 
-  input{
-      align-self: center;
+  input {
+    align-self: center;
   }
 
-  img{
-      display: none;
+  img {
+    display: none;
   }
 
-  ul{
-      text-align: center;
+  ul {
+    text-align: center;
   }
 }
 
 
 /*  todos os codigos similares  */
-section{
+section {
   padding: 100px 0;
 }
-section .title{
+
+section .title {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
   font-size: 40px;
@@ -164,7 +216,8 @@ section .title{
   padding-bottom: 20px;
   position: relative;
 }
-section .title::before{
+
+section .title::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -174,12 +227,13 @@ section .title::before{
   background: #000000;
   transform: translateX(-50%);
 }
-section .title::after{
+
+section .title::after {
   position: absolute;
-  bottom:-12px;
+  bottom: -12px;
   left: 50%;
   font-size: 20px;
-  background: #ffffff;
+  background: #011627;
   color: #c53dd1;
   padding: 5px;
   transform: translateX(-50%);
@@ -187,39 +241,44 @@ section .title::after{
 
 .about .about-content,
 .services .serv-content,
-.contact .contact-content{
+.contact .contact-content {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
 }
 
 /*  sessão sobre  */
 
-.about .title::after{
+.about .title::after {
   content: "Quem somos";
 }
-.about .about-content .left{
+
+.about .about-content .left {
   width: 45%;
 }
-.about .about-content .right{
+
+.about .about-content .right {
   width: 55%;
 }
-.about .about-content .right .text{
+
+.about .about-content .right .text {
   font-size: 25px;
   font-weight: 500;
   margin-bottom: 10px;
 }
-.about .about-content .right .text span{
+
+.about .about-content .right .text span {
   color: #c53dd1;
 }
-.about .about-content .right p{
+
+.about .about-content .right p {
   text-align: justify;
 }
-.about .about-content .right a{
+
+.about .about-content .right a {
   display: inline-block;
   background: #c53dd1;
-  color: #fff;
+  color: white;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 30px;
@@ -228,56 +287,70 @@ section .title::after{
   border: 2px solid #c53dd1;
   transition: all 0.3s ease;
 }
-.about .about-content .right a:hover{
+
+.about .about-content .right a:hover {
   color: #c53dd1;
   background: none;
 }
-.about .about-content .left img{
+
+.about .about-content .left img {
   width: 400px;
   height: 400px;
   object-fit: cover;
   border-radius: 6px;
 }
+
 /*  sessão serviços */
-.services, .teams{
+.services,
+.teams {
   background: #000000;
-  color: #fff;
+  color: white;
 }
+
 .services .title::before,
-.teams .title::before{
-  background: #fff;
+.teams .title::before {
+  background: white;
 }
+
 .services .title::after,
-.teams .title::after{
+.teams .title::after {
   background: #111;
   content: "nossa finalidade";
 }
-.services .serv-content .card{
+
+.services .serv-content .card {
   width: calc(33% - 20px);
   background: #222;
   text-align: center;
   border-radius: 6px;
-  padding: 20px 25px;
+  padding: 30px 35px;
   cursor: pointer;
+  margin: 10px;
   transition: all 0.3s ease;
 }
-.services .serv-content .card:hover{
+
+.services .serv-content .card:hover {
   background: #c53dd1;
 }
-.services .serv-content .card .box{
+
+.services .serv-content .card .box {
   transition: all 0.3s ease;
 }
-.services .serv-content .card:hover .box{
+
+.services .serv-content .card:hover .box {
   transform: scale(1.05);
 }
-.services .serv-content .card ion-icon{
+
+.services .serv-content .card ion-icon {
   font-size: 70px;
   color: #c53dd1;
 }
-.services .serv-content .card:hover ion-icon{
-  color: #fff;
+
+.services .serv-content .card:hover ion-icon {
+  color: white;
 }
-.services .serv-content .card .text{
+
+.services .serv-content .card .text {
   font-size: 25px;
   font-weight: 500;
   margin: 10px 0 7px 0;
@@ -285,21 +358,23 @@ section .title::after{
 
 
 /*  sessão equipe  */
-.teams .title::after{
+.teams .title::after {
   content: "nosso time";
 }
 
-.teams .carousel .card{
+.teams .carousel .card {
   background: #202020;
   border-radius: 6px;
   padding: 25px 35px;
   text-align: center;
   transition: all 0.3s ease;
 }
-.teams .carousel .card:hover{
+
+.teams .carousel .card:hover {
   background: #c53dd1;
 }
-.teams .carousel .card img{
+
+.teams .carousel .card img {
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -307,64 +382,72 @@ section .title::after{
   border: 5px solid #c53dd1;
   transition: all 0.3s ease;
 }
-.teams .carousel .card:hover img{
+
+.teams .carousel .card:hover img {
   border-color: #fff;
 }
-.teams .carousel .card .box{
+
+.teams .carousel .card .box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
 }
-.teams .carousel .card:hover .box{
+
+.teams .carousel .card:hover .box {
   transform: scale(1.05);
 }
-.teams .carousel .card .text{
+
+.teams .carousel .card .text {
   font-size: 25px;
   font-weight: 500;
   margin: 10px 0 7px 0;
 }
-.owl-dots{
+
+.owl-dots {
   text-align: center;
   margin-top: 20px;
 }
-.owl-dot{
+
+.owl-dot {
   width: 14px;
   height: 14px;
-  outline: none!important;
+  outline: none !important;
   border-radius: 50%;
-  border: 2px solid #c53dd1!important;
+  border: 2px solid #c53dd1 !important;
   transition: all 0.3s ease;
 }
-.owl-dot.active{
+
+.owl-dot.active {
   width: 35px;
   border-radius: 15px;
 }
+
 .owl-dot.active,
-.owl-dot:hover{
-  background: #c53dd1!important;
+.owl-dot:hover {
+  background: #c53dd1 !important;
 }
 
 // cartão
-.cart .title::after{
+.cart .title::after {
   content: "nosso cartão";
 }
 
 
-h3.omni{
+h3.omni {
   line-height: 28px;
-  text-align: right;
-  font-family: Battambang;
+  text-align: center;
+  font-family: Roboto, sans-serif;
   font-size: 40px;
-  color:rgb(35, 185, 122);
+  color: rgb(35, 185, 122);
   height: 60px;
 
 }
 
-h4{
+h4 {
   line-height: 10px;
-  text-align: right;
-  font-family: CabinCondensed;
+  text-align: center;
+  font-family: Roboto, sans-serif;
   font-size: 20px;
 }
