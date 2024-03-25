@@ -70,17 +70,15 @@
       <div class="list-container">
         <div class="categoria">
           <h1>Categoria</h1>
-          <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista"> {{ categoria.nomeCategoria }}</mat-list-item>
+          <mat-list>
+            <mat-list-item *ngFor="let categoria of dados">{{ categoria.nomeCategoria }}</mat-list-item>
           </mat-list>
-
-          
         </div>
 
         <div class="categoria">
           <h1>Valor gasto</h1>
           <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista"> {{ categoria }}</mat-list-item>
+            <mat-list-item class="lista"> {{ categoria.totalGasto }}</mat-list-item>
           </mat-list>
         </div>
       </div>
