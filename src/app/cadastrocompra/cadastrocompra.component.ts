@@ -21,10 +21,10 @@ export class CadastrocompraComponent implements OnInit {
   categoriaFiltrada$: Observable<any[]>;
   categoriaSelecionada!: any;
 
-  cartaoId: number = 0;
-  categoria: string = '';
-  estabelecimento: string = '';
-  valor:number = 0;
+  cartaoId!: number;
+  categoria!: string;
+  estabelecimento!: string;
+  valor!:number;
 
   constructor(private compraService: CompraService) {
 

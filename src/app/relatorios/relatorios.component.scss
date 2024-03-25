@@ -13,14 +13,15 @@
   display: flex;
   justify-content: space-between; // Para espaçamento igual entre os elementos
   width: 50%;
-
-
 }
 mat-tab {
   margin: 30px;
 }
-
-.mat-tab-group {
+.mat-mdc-form-field {
+  width: 400px;
+} 
+mat-tab-group {
+  color: #fff;
   margin-bottom: 48px;
 }
 
@@ -34,3 +35,9 @@ h1 {
   color: aliceblue;
   border-bottom: 2px solid rgb(84, 24, 153);
 }
+
+.container-data {
+  display: flex;
+  gap: 30px;
+}
+
