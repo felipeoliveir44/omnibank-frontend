@@ -17,12 +17,13 @@
 }
 .form-group {
   display: flex;
-  padding: 10px;
-  margin-bottom: 20px;
 }
 
 label {
   font-weight: bold;
+}
+.mat-mdc-form-field {
+  width: 400px;
 }
 
 .form-control {

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, Subject, debounceTime, map, startWith, switchMap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { Page } from '../models/page';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-listagemcartao',
@@ -18,8 +19,9 @@ export class ListagemcartaoComponent {
   cartoesSalvos: Cartao[] = [];
   cpfDigitado: string = '';
   numeroDigitado: string = '';
+  cartaoSelecionado: Cartao[] = [];
 
-  constructor(private cartaoService: CartaoserviceService, private _snackBar: MatSnackBar) {}
+  constructor(private cartaoService: CartaoserviceService, private _snackBar: MatSnackBar, private router:Router) {}
 
   ngOnInit(): void {
     this.carregarCartoes();
@@ -87,6 +89,7 @@ export class ListagemcartaoComponent {
       (response) => {
         console.log('Status atualizado com sucesso!');
         this.carregarCartoes(); // Atualiza a lista após a atualização do status
+        
       },
       (erro) => {
         this.exibirSnackBarErro('Erro ao atualizar o status do cartão. Por favor, tente novamente.');
@@ -94,6 +97,14 @@ export class ListagemcartaoComponent {
     );
   }
 
+  enviarDadosParaProximaPagina(cartao: Cartao): void {
+    // Armazena o cartão selecionado na sessionStorage
+    sessionStorage.setItem('cartaoSelecionado', JSON.stringify(cartao));
+
+    // Navega para a próxima página
+    this.router.navigateByUrl('/alterarlimitecartao');
+  }
+  
   private exibirSnackBarErro(mensagem: string): void {
     this._snackBar.open(mensagem, 'Fechar', {
       duration: 5000,
@@ -104,23 +115,23 @@ export class ListagemcartaoComponent {
 
   
 
-  // irParaPrimeiraPagina(): void {
-  //   this.paginaAtual = 0;
-  //   this.carregarCartoes();
-  // }
+  irParaPrimeiraPagina(): void {
+    this.paginaAtual = 0;
+    this.carregarCartoes();
+  }
   
-  // irParaPaginaAnterior(): void {
-  //   this.paginaAtual--;
-  //   this.carregarCartoes();
-  // }
+  irParaPaginaAnterior(): void {
+    this.paginaAtual--;
+    this.carregarCartoes();
+  }
   
-  // irParaProximaPagina(): void {
-  //   this.paginaAtual++;
-  //   this.carregarCartoes();
-  // }
+  irParaProximaPagina(): void {
+    this.paginaAtual++;
+    this.carregarCartoes();
+  }
   
-  // irParaUltimaPagina(): void {
-  //   this.paginaAtual = this.paginaCartoes.totalPages;
-  //   this.carregarCartoes();
-  // }
+  irParaUltimaPagina(): void {
+    this.paginaAtual = this.paginaCartoes.totalPages;
+    this.carregarCartoes();
+  }
 }
