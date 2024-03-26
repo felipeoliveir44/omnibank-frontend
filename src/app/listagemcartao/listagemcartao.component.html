@@ -20,7 +20,7 @@
       <mat-list-item class="lista">Validade: {{ cartao.dataValidade }} </mat-list-item>
     <div class="buttons">
         <button mat-raised-button color="primary" routerLink="/alterarlimitecartao" class="botoes-acoes" (click)="enviarDadosParaProximaPagina(cartao)">Alterar limite</button>
-        <button mat-raised-button color="primary" routerLink="/cadastrocliente" class="botoes-acoes">Ver fatura</button>
+        <button mat-raised-button color="primary" routerLink="/visualizar-fatura" class="botoes-acoes" (click)="enviarDadosParaPaginaFatura(cartao)">Ver fatura</button>
         <button mat-raised-button color="warn" class="botoes-acoes" *ngIf="cartao.status == true" (click)="atualizarStatus(cartao.id, 0)">Desativar</button>
         <button mat-raised-button color="primary" class="botoes-acoes" *ngIf="cartao.status == false" (click)="atualizarStatus(cartao.id, 1)">Ativar</button>
     </div>

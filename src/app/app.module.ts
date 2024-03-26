@@ -45,6 +45,7 @@ import { CadastroclienteComponent } from './cadastrocliente/cadastrocliente.comp
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
+import { VisualizarFaturaComponent } from './visualizar-fatura/visualizar-fatura.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ListagemclienteComponent } from './listagemcliente/listagemcliente.comp
       CadastrologinComponent,
       CadastroclienteComponent,
       RelatoriosComponent,
-      ListagemclienteComponent
+      ListagemclienteComponent,
+      VisualizarFaturaComponent
    ],
   imports: [
     BrowserModule,
