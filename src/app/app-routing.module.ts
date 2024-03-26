@@ -12,6 +12,7 @@ import { CadastrologinComponent } from './cadastrologin/cadastrologin.component'
 import { CadastroclienteComponent } from './cadastrocliente/cadastrocliente.component';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
+import { VisualizarFaturaComponent } from './visualizar-fatura/visualizar-fatura.component';
 
 
 
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'cadastrologin', component: CadastrologinComponent},
   {path: 'cadastrocliente', component: CadastroclienteComponent},
   {path: 'relatorios', component: RelatoriosComponent},
-  {path: 'listagemcliente', component: ListagemclienteComponent}
+  {path: 'listagemcliente', component: ListagemclienteComponent},
+  {path: 'visualizar-fatura', component: VisualizarFaturaComponent}
 
 ];
 

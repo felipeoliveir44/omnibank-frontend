@@ -104,6 +104,14 @@ export class ListagemcartaoComponent {
     // Navega para a próxima página
     this.router.navigateByUrl('/alterarlimitecartao');
   }
+
+  enviarDadosParaPaginaFatura(cartao: Cartao): void {
+    // Armazena o cartão selecionado na sessionStorage
+    sessionStorage.setItem('cartaoSelecionado', JSON.stringify(cartao));
+
+    // Navega para a próxima página
+    this.router.navigateByUrl('/visualizar-fatura');
+  }
   
   private exibirSnackBarErro(mensagem: string): void {
     this._snackBar.open(mensagem, 'Fechar', {

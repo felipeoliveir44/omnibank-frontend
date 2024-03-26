@@ -2,12 +2,15 @@
 
 <div class="container">
   <div class="header">
-  <h2>Lista de cartões</h2>
-  <button mat-raised-button color="primary" routerLink="/cadastrocartao">Cadastrar novo cartão</button>
-</div>
+    <h1>Listagem de cartões</h1>
+  </div>
+  <div class="botao-listagem-cartao">
+    <button mat-raised-button color="primary" routerLink="/cadastrocartao">Cadastrar novo cartão</button>
+  </div>
+  
   
   <div class="pesquisa">
-    <mat-label>Pesquisar</mat-label>
+    <h2 class="h2-pesquisa">Pesquisar</h2>
       <input matInput [(ngModel)]="numeroDigitado" placeholder="Digite o número do cartão" type="text">
       <input type="text" [(ngModel)]="cpfDigitado" placeholder="Digite o CPF">
       <button mat-raised-button color="primary" class="botoes-acoes" (click)="executarPesquisa()">Pesquisar</button>
@@ -20,7 +23,7 @@
       <mat-list-item class="lista">Validade: {{ cartao.dataValidade }} </mat-list-item>
     <div class="buttons">
         <button mat-raised-button color="primary" routerLink="/alterarlimitecartao" class="botoes-acoes" (click)="enviarDadosParaProximaPagina(cartao)">Alterar limite</button>
-        <button mat-raised-button color="primary" routerLink="/cadastrocliente" class="botoes-acoes">Ver fatura</button>
+        <button mat-raised-button color="primary" routerLink="/visualizar-fatura" class="botoes-acoes" (click)="enviarDadosParaPaginaFatura(cartao)">Ver fatura</button>
         <button mat-raised-button color="warn" class="botoes-acoes" *ngIf="cartao.status == true" (click)="atualizarStatus(cartao.id, 0)">Desativar</button>
         <button mat-raised-button color="primary" class="botoes-acoes" *ngIf="cartao.status == false" (click)="atualizarStatus(cartao.id, 1)">Ativar</button>
     </div>

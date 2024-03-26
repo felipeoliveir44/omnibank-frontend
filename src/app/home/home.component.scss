@@ -18,14 +18,14 @@
 }
 
 .cartao {
-  box-shadow: 5px 5px 50px 5px #52ffae;
+  box-shadow: 0px 5px 70px 5px #52ffae;
   border-radius: 10px;
 }
 
 /*  Home   inicio  */
 
 body {
-  background-color: rgb(34, 34, 34);
+  background-color: rgb(191, 238, 18);
   color: white;
   font-family: "Ubuntu", sans-serif;
 
@@ -62,7 +62,7 @@ a {
 }
 
 a:hover {
-  color: rgb(132, 14, 201);
+  color: #9c25d3;
   transition: 0.3s all;
 }
 
@@ -83,7 +83,7 @@ h2 {
 }
 
 span {
-  color: rgb(132, 14, 201);
+  color: #9c25d3;
 }
 
 .container-sobre {
@@ -131,7 +131,7 @@ span {
   text-align: center;
   color: white;
   text-align: right;
-  font-family: Roboto, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   padding: 20px;
 
 }
@@ -155,7 +155,7 @@ form {
 form [type="submit"] {
   height: 50px;
   width: 50%;
-  background-color: rgb(132, 14, 201);
+  background-color: #9c25d3;
   color: white;
   font-weight: bold;
 }
@@ -222,9 +222,9 @@ section .title::before {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 180px;
+  width: 200px;
   height: 3px;
-  background: #000000;
+  background: white;
   transform: translateX(-50%);
 }
 
@@ -233,8 +233,8 @@ section .title::after {
   bottom: -12px;
   left: 50%;
   font-size: 20px;
-  background: #011627;
-  color: #c53dd1;
+  background: #222;
+  color: #9c25d3;
   padding: 5px;
   transform: translateX(-50%);
 }
@@ -268,7 +268,7 @@ section .title::after {
 }
 
 .about .about-content .right .text span {
-  color: #c53dd1;
+  color: #9c25d3;
 }
 
 .about .about-content .right p {
@@ -277,19 +277,19 @@ section .title::after {
 
 .about .about-content .right a {
   display: inline-block;
-  background: #c53dd1;
+  background: #9c25d3;
   color: white;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 30px;
   margin-top: 20px;
   border-radius: 6px;
-  border: 2px solid #c53dd1;
+  border: 2px solid #9c25d3;
   transition: all 0.3s ease;
 }
 
 .about .about-content .right a:hover {
-  color: #c53dd1;
+  color: #9c25d3;
   background: none;
 }
 
@@ -303,7 +303,7 @@ section .title::after {
 /*  sessão serviços */
 .services,
 .teams {
-  background: #000000;
+  background: #111;
   color: white;
 }
 
@@ -315,7 +315,7 @@ section .title::after {
 .services .title::after,
 .teams .title::after {
   background: #111;
-  content: "nossa finalidade";
+  content: "Nossa Finalidade";
 }
 
 .services .serv-content .card {
@@ -330,7 +330,7 @@ section .title::after {
 }
 
 .services .serv-content .card:hover {
-  background: #c53dd1;
+  background: #9c25d3;
 }
 
 .services .serv-content .card .box {
@@ -343,7 +343,7 @@ section .title::after {
 
 .services .serv-content .card ion-icon {
   font-size: 70px;
-  color: #c53dd1;
+  color: #9c25d3;
 }
 
 .services .serv-content .card:hover ion-icon {
@@ -359,9 +359,13 @@ section .title::after {
 
 /*  sessão equipe  */
 .teams .title::after {
-  content: "nosso time";
+  content: "Nosso time";
 }
-
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 .teams .carousel .card {
   background: #202020;
   border-radius: 6px;
@@ -371,7 +375,7 @@ section .title::after {
 }
 
 .teams .carousel .card:hover {
-  background: #c53dd1;
+  background: #9c25d3;
 }
 
 .teams .carousel .card img {
@@ -379,7 +383,7 @@ section .title::after {
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid #c53dd1;
+  border: 5px solid #9c25d3;
   transition: all 0.3s ease;
 }
 
@@ -415,7 +419,7 @@ section .title::after {
   height: 14px;
   outline: none !important;
   border-radius: 50%;
-  border: 2px solid #c53dd1 !important;
+  border: 2px solid #9c25d3!important;
   transition: all 0.3s ease;
 }
 
@@ -426,28 +430,28 @@ section .title::after {
 
 .owl-dot.active,
 .owl-dot:hover {
-  background: #c53dd1 !important;
+  background: #9c25d3 !important;
 }
 
 // cartão
 .cart .title::after {
-  content: "nosso cartão";
+  content: "Nosso cartão";
 }
 
 
 h3.omni {
   line-height: 28px;
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 40px;
-  color: rgb(35, 185, 122);
+  color: #52ffae;
   height: 60px;
 
 }
 
 h4 {
-  line-height: 10px;
+  line-height: 30px;
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 20px;
 }

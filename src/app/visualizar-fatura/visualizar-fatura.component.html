@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="pesquisa">
+    <div>
+      <h2>Visualizar fatura</h2>
+      <mat-list-item class="lista"
+        >Número do cartão: {{ cartaoSelecionado.numeroCartao }}
+      </mat-list-item>
+      <mat-list-item class="lista"
+        >Cliente: {{ cartaoSelecionado.nomeCliente }}</mat-list-item
+      >
+    </div>
+
+    <div class="datas">
+      <mat-form-field>
+        <mat-label>Escolha a data de início</mat-label>
+        <input
+          matInput
+          [matDatepicker]="inicioPicker"
+          [(ngModel)]="dataInicio"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="inicioPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #inicioPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Escolha a data final</mat-label>
+        <input matInput [matDatepicker]="finalPicker" [(ngModel)]="dataFinal" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="finalPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #finalPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="buttons">
+      <button mat-raised-button color="accent" (click)="listarDados()">
+        Visualizar
+      </button>
+    </div>
+  </div>
+
+  <div class="dadosRetorno">
+    <table mat-table [dataSource]="dados" matSort class="tabela-dados">
+
+        <!-- Coluna Data -->
+        <ng-container matColumnDef="dataCompra">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+          <td mat-cell *matCellDef="let dado"> {{ dado.dataCompra }} </td>
+        </ng-container>
+      
+        <!-- Coluna Estabelecimento -->
+        <ng-container matColumnDef="estabelecimento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Estabelecimento </th>
+          <td mat-cell *matCellDef="let dado"> {{ dado.estabelecimento }} </td>
+        </ng-container>
+      
+        <!-- Coluna Categoria -->
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+          <td mat-cell *matCellDef="let dado"> {{ dado.categoria }} </td>
+        </ng-container>
+      
+        <!-- Coluna Valor da Compra -->
+        <ng-container matColumnDef="valorCompra">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor da Compra </th>
+          <td mat-cell *matCellDef="let dado"> R$ {{ dado.valorCompra }} </td>
+        </ng-container>
+      
+        <!-- Linha de Cabeçalho da Tabela -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      
+        <!-- Linha de Dados da Tabela -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      </table>
+  </div>
+</div>
