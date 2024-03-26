@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 30px;
 
   .selecionar-cartao {
     margin-bottom: 20px;
@@ -30,6 +31,7 @@ mat-tab {
 mat-tab-group {
   color: #fff;
   margin-bottom: 48px;
+  height: 600px;
 }
 
 // Estilos para listas
