@@ -86,48 +86,53 @@ export class RelatoriosComponent implements OnInit {
     return `${ano}-${mes}-${dia}`;
   }
 
+listarRelatorio() {
+  this.listarDadosComprasRealizadas();
+  this.listarDadosMaiorValor();
+  this.listarDadosSemCompras();
+}
 
-  listarDadosMaiorValor() {
-    const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
-    const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
-    this.acompanhamento.listarMaiorValor(dataInicioFormatada, dataFinalFormatada).subscribe(
-      (dados: any[]) => {
-        this.dadosAcompanhamentoClienteMaiorValor = dados;
-        console.log('Dados recebidos:', dados);
-      },
-      (erro) => {
-        console.log("Erro ao obter os dados:", erro);
-      }
-    ); 
-  }
+listarDadosMaiorValor() {
+  const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
+  const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
+  this.acompanhamento.listarMaiorValor(dataInicioFormatada, dataFinalFormatada).subscribe(
+    (dados: any[]) => {
+      this.dadosAcompanhamentoClienteMaiorValor = dados;
+      console.log('Dados recebidos:', dados);
+    },
+    (erro) => {
+      console.log("Erro ao obter os dados:", erro);
+    }
+  ); 
+}
 
-  listarDadosSemCompras() {
-    const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
-    const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
-    this.acompanhamento.listarSemCompras(dataInicioFormatada, dataFinalFormatada).subscribe(
-      (dados: any[]) => {
-        this.dadosAcompanhamentoClienteSemCompra = dados;
-        console.log('Dados recebidos sem compra:', dados);
-      },
-      (erro) => {
-        console.log("Erro ao obter os dados:", erro);
-      }
-    ); 
-  }
+listarDadosSemCompras() {
+  const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
+  const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
+  this.acompanhamento.listarSemCompras(dataInicioFormatada, dataFinalFormatada).subscribe(
+    (dados: any[]) => {
+      this.dadosAcompanhamentoClienteSemCompra = dados;
+      console.log('Dados recebidos sem compra:', dados);
+    },
+    (erro) => {
+      console.log("Erro ao obter os dados:", erro);
+    }
+  ); 
+}
 
-  listarDadosComprasRealizadas() {
-    const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
-    const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
-    this.acompanhamento.clientesComMaisCompras(dataInicioFormatada, dataFinalFormatada).subscribe(
-      (dados: any[]) => {
-        this.dadosAcompanhamentoClienteMaisCompras = dados;
-        console.log('Dados recebidos:', dados);
-      },
-      (erro) => {
-        console.log("Erro ao obter os dados:", erro);
-      }
-    ); 
-  }
+listarDadosComprasRealizadas() {
+  const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
+  const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
+  this.acompanhamento.clientesComMaisCompras(dataInicioFormatada, dataFinalFormatada).subscribe(
+    (dados: any[]) => {
+      this.dadosAcompanhamentoClienteMaisCompras = dados;
+      console.log('Dados recebidos:', dados);
+    },
+    (erro) => {
+      console.log("Erro ao obter os dados:", erro);
+    }
+  ); 
+}
 
 
 }
