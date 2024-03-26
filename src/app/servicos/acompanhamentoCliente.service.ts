@@ -29,10 +29,10 @@ constructor(private http:HttpClient) { }
     return this.http.post<any>(this.UrlRelatorioSemCompras, corpoRequisicao);
   }
 
-  clientesComMaisCompras(inicio: Date, fim: Date): Observable<any[]> {
+  clientesComMaisCompras(inicio: string, fim: string): Observable<any[]> {
     const params = new HttpParams()
-      .set('inicio', inicio.toISOString()) // Use toISOString() para formatar a data corretamente
-      .set('fim', fim.toISOString());
+      .set('inicio', inicio) // Use toISOString() para formatar a data corretamente
+      .set('fim', fim);
   
     return this.http.get<any[]>(`${this.UrlRelatorioMaisCompras}`, { params }) // Passe o `HttpParams` como uma opção
       .pipe(

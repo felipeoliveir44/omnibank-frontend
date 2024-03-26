@@ -116,7 +116,7 @@
           <mat-datepicker #finalPickerAcompanhamento></mat-datepicker>
         </mat-form-field>
 
-        <button mat-raised-button color="accent" (click)="listarDadosSemCompras()">Visualizar</button>
+        <button mat-raised-button color="accent" (click)="listarDadosComprasRealizadas()">Visualizar</button>
       </div>
 
       <div class="acompanhamento-cliente">
@@ -125,7 +125,7 @@
         <div class="container">
           <div class="card">
             <h2>Mais compras realizadas</h2>
-            <p>Conteúdo do card 1...</p>
+            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteMaisCompras">Cliente: {{ dados.nomeCliente }} {{ dados.quantidadeCompras}} compras</mat-list-item>
           </div>
           <div class="card">
             <h2>Compras de maior valor</h2>

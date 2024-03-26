@@ -33,6 +33,7 @@ export class RelatoriosComponent implements OnInit {
 
   dadosAcompanhamentoClienteMaiorValor:any[] = [];
   dadosAcompanhamentoClienteSemCompra:any[] = [];
+  dadosAcompanhamentoClienteMaisCompras: any[] = [];
 
   
   constructor(private relatorioService: RelatoriosService, private acompanhamento: AcompanhamentoClienteService, private datePipe: DatePipe) { 
@@ -113,5 +114,20 @@ export class RelatoriosComponent implements OnInit {
       }
     ); 
   }
+
+  listarDadosComprasRealizadas() {
+    const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
+    const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
+    this.acompanhamento.clientesComMaisCompras(dataInicioFormatada, dataFinalFormatada).subscribe(
+      (dados: any[]) => {
+        this.dadosAcompanhamentoClienteMaisCompras = dados;
+        console.log('Dados recebidos:', dados);
+      },
+      (erro) => {
+        console.log("Erro ao obter os dados:", erro);
+      }
+    ); 
+  }
+
 
 }
