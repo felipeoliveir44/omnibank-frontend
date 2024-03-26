@@ -1,54 +1,87 @@
-
-.header {
-  font-family: "Ubuntu", sans-serif;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  padding: 2rem 1.5rem 1.5rem 2rem;
-}
+// Estilos para a seção de gasto por categoria
 .gasto-categoria {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .selecionar-cartao {
+    margin-bottom: 20px;
+  }
+
+  .list-container {
+    display: flex;
+    justify-content: space-between; // Para espaçamento igual entre os elementos
+    width: 50%;
+  }
 }
 
-.selecionar-cartao {
-  margin: 3rem  ;
-}
-
-.list-container {
-  display: flex;
-  justify-content: space-between; // Para espaçamento igual entre os elementos
-  width: 50%;
-}
+// Estilos específicos para os tabs
 mat-tab {
   margin: 30px;
 }
+
+// Estilos para os campos de formulário
 .mat-mdc-form-field {
   width: 400px;
-} 
+}
+
+// Estilos para o grupo de tabs
 mat-tab-group {
   color: #fff;
   margin-bottom: 48px;
 }
 
+// Estilos para listas
 .mat-list {
   flex: 1;  // Para ocupar o espaço disponível e evitar que as listas se sobreponham
   margin-right: 20px;  // Opcional: Adiciona um espaço entre as listas
 }
-.botao-visualizar {
-  margin: 3rem 3rem;
-}
 
-h2 {
+// Estilos para os títulos
+h1 {
   color: aliceblue;
   border-bottom: 2px solid rgb(84, 24, 153);
 }
 
+// Estilos para o container de datas
 .container-data {
   display: flex;
   gap: 30px;
 }
 
+// Estilos para os cards
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.card {
+  width: calc(33.33% - 20px); /* Calcula 1/3 do espaço disponível com margens entre os cards */
+  padding: 20px;
+  background-color: #101433;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%; /* Cards ocupam 100% da largura quando a tela é pequena */
+    margin-bottom: 20px;
+  }
+}
+
+.datas{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.container-relatorio {
+  margin: 30px;
+}

@@ -2,15 +2,24 @@
   <mat-tab label="Relatório Gasto por Categoria">
     <div class="gasto-categoria">
       <div class="selecionar-cartao">
-        <div class="header">
-          <h1>Selecione o cartão</h1>
-        </div>
+        <h2>Selecione o cartão</h2>
+
         <mat-form-field>
-          <input type="text" placeholder="Digite o numero do cartão" matInput [formControl]="cartaoControl"
-            [matAutocomplete]="autoCartao" class="input" [(ngModel)]="cartaoId" />
+          <input
+            type="text"
+            placeholder="Digite o numero do cartão"
+            matInput
+            [formControl]="cartaoControl"
+            [matAutocomplete]="autoCartao"
+            class="input"
+            [(ngModel)]="cartaoId"
+          />
           <mat-autocomplete #autoCartao="matAutocomplete">
-            <mat-option *ngFor="let cartao of cartaoFiltrados$ | async" [value]="cartao.nomeCliente"
-              (onSelectionChange)="selecionarCartao(cartao)">
+            <mat-option
+              *ngFor="let cartao of cartaoFiltrados$ | async"
+              [value]="cartao.nomeCliente"
+              (onSelectionChange)="selecionarCartao(cartao)"
+            >
               {{ cartao.numeroCartao }} (Cliente: {{ cartao.nomeCliente }})
             </mat-option>
           </mat-autocomplete>
@@ -20,43 +29,114 @@
       <div class="container-data">
         <mat-form-field>
           <mat-label>Escolha a data de início</mat-label>
-          <input matInput [matDatepicker]="inicioPicker" [(ngModel)]="dataInicio" />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matSuffix [for]="inicioPicker"></mat-datepicker-toggle>
+          <input
+            matInput
+            [matDatepicker]="inicioPicker"
+            [(ngModel)]="dataInicio"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="inicioPicker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #inicioPicker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Escolha a data final</mat-label>
-          <input matInput [matDatepicker]="finalPicker" [(ngModel)]="dataFinal" />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matSuffix [for]="finalPicker"></mat-datepicker-toggle>
+          <input
+            matInput
+            [matDatepicker]="finalPicker"
+            [(ngModel)]="dataFinal"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="finalPicker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #finalPicker></mat-datepicker>
         </mat-form-field>
       </div>
 
-      <button class="botao-visualizar" mat-raised-button color="accent" (click)="listarDados(cartaoId, dataInicio, dataFinal)">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="listarDados(cartaoId, dataInicio, dataFinal)"
+      >
         Visualizar
       </button>
 
       <div class="list-container">
         <div class="categoria">
-          <h2>Categoria</h2>
-          <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista"> {{ categoria.nomeCategoria }}</mat-list-item>
+          <h1>Categoria</h1>
+          <mat-list>
+            <mat-list-item *ngFor="let categoria of dados">{{
+              categoria.nomeCategoria
+            }}</mat-list-item>
           </mat-list>
         </div>
 
         <div class="categoria">
-          <h2>Valor gasto</h2>
+          <h1>Valor gasto</h1>
           <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista"> {{ categoria.totalGasto }}</mat-list-item>
+            <mat-list-item class="lista">
+              {{ categoria.totalGasto }}</mat-list-item
+            >
           </mat-list>
         </div>
       </div>
     </div>
   </mat-tab>
 
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
+  <mat-tab label="Relatório de Acompanhamento de Clientes">
+    <div class="container-relatorio">
+      <div class="datas">
+        <mat-form-field>
+          <mat-label>Escolha a data de início</mat-label>
+          <input
+            matInput
+            [matDatepicker]="inicioPickerAcompanhamento"
+            [(ngModel)]="dataInicioAcompanhamentoCliente"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="inicioPickerAcompanhamento"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #inicioPickerAcompanhamento></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Escolha a data final</mat-label>
+          <input
+            matInput
+            [matDatepicker]="finalPickerAcompanhamento"
+            [(ngModel)]="dataFinalAcompanhamentoCliente"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="finalPickerAcompanhamento"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #finalPickerAcompanhamento></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" (click)="listarRelatorio()">Visualizar</button>
+      </div>
+
+      <div class="acompanhamento-cliente">
+        
+
+        <div class="container">
+          <div class="card">
+            <h2>Mais compras realizadas</h2>
+            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteMaisCompras">Cliente: {{ dados.nomeCliente }} {{ dados.quantidadeCompras}} compras</mat-list-item>
+          </div>
+          <div class="card">
+            <h2>Compras de maior valor</h2>
+            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteMaiorValor">Cliente: {{ dados.nomeCliente }} Valor: {{ dados.maiorValorCompra}}</mat-list-item>
+          </div>
+          <div class="card">
+            <h2>Não realizaram compras</h2>
+            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteSemCompra">Cliente: {{ dados.nome }}</mat-list-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
 </mat-tab-group>
