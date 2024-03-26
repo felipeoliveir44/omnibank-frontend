@@ -6,6 +6,7 @@ import { startWith, switchMap } from 'rxjs';
 import { Cartao } from '../models/cartao';
 import { DatePipe } from '@angular/common';
 import { RelatorioCategoria } from '../models/relatorioCategoria';
+import { AcompanhamentoClienteService } from '../servicos/acompanhamentoCliente.service';
 
 @Component({
   selector: 'app-relatorios',
@@ -22,10 +23,19 @@ export class RelatoriosComponent implements OnInit {
   dataFinal!: Date;
   cartaoId!: number;
 
-  dados: RelatorioCategoria[] = [];
-  
 
-  constructor(private relatorioService: RelatoriosService, private datePipe: DatePipe) { 
+  dados: RelatorioCategoria[] = [];
+
+
+
+  dataInicioAcompanhamentoCliente!:Date;
+  dataFinalAcompanhamentoCliente!:Date;
+
+  dadosAcompanhamentoClienteMaiorValor:any[] = [];
+  dadosAcompanhamentoClienteSemCompra:any[] = [];
+
+  
+  constructor(private relatorioService: RelatoriosService, private acompanhamento: AcompanhamentoClienteService, private datePipe: DatePipe) { 
     this.cartaoFiltrados$ = this.cartaoControl.valueChanges.pipe(
       startWith(''),
       switchMap(value => this.relatorioService.buscarCartaoAutoComplete(value))
@@ -74,4 +84,34 @@ export class RelatoriosComponent implements OnInit {
 
     return `${ano}-${mes}-${dia}`;
   }
+
+
+  listarDadosMaiorValor() {
+    const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
+    const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
+    this.acompanhamento.listarMaiorValor(dataInicioFormatada, dataFinalFormatada).subscribe(
+      (dados: any[]) => {
+        this.dadosAcompanhamentoClienteMaiorValor = dados;
+        console.log('Dados recebidos:', dados);
+      },
+      (erro) => {
+        console.log("Erro ao obter os dados:", erro);
+      }
+    ); 
+  }
+
+  listarDadosSemCompras() {
+    const dataInicioFormatada = this.formatarData(this.dataInicioAcompanhamentoCliente);
+    const dataFinalFormatada = this.formatarData(this.dataFinalAcompanhamentoCliente);
+    this.acompanhamento.listarSemCompras(dataInicioFormatada, dataFinalFormatada).subscribe(
+      (dados: any[]) => {
+        this.dadosAcompanhamentoClienteSemCompra = dados;
+        console.log('Dados recebidos sem compra:', dados);
+      },
+      (erro) => {
+        console.log("Erro ao obter os dados:", erro);
+      }
+    ); 
+  }
+
 }

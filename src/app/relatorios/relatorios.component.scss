@@ -54,6 +54,7 @@ h1 {
 .container {
   display: flex;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .card {
@@ -78,4 +79,9 @@ h1 {
 .datas{
   display: flex;
   gap: 20px;
+  align-items: center;
+}
+
+.container-relatorio {
+  margin: 30px;
 }
