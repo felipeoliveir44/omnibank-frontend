@@ -8,6 +8,7 @@ import { AsyncPipe } from '@angular/common';
 import { Cliente } from '../models/cliente';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -23,7 +24,7 @@ export class CadastrocartaoComponent implements OnInit {
   clienteSelecionado!: number;
   clienteCartao:Cartao[] = [];
 
-  constructor(private cartaoService: CartaoserviceService, private router: Router) {
+  constructor(private cartaoService: CartaoserviceService, private router: Router, private _snackBar: MatSnackBar) {
     
     this.clientesFiltrados$ = this.clienteControl.valueChanges.pipe(
       startWith(''),
@@ -73,8 +74,20 @@ export class CadastrocartaoComponent implements OnInit {
   submitForm() {
     this.cartaoService.cadastrar(this.clienteSelecionado, this.limiteCliente).subscribe(dados => {
       this.clienteCartao = dados;
-      console.log(this.clienteCartao);
+      this.exibirSnackBarErro("Cartão cadastrado com sucesso!");
+      this.router.navigate(['/listagemcartao']);
+    },(erro) => {
+      this.exibirSnackBarErro("Erro! Tente novamente.");
+    }
+    );
+    
+  }
+
+  private exibirSnackBarErro(mensagem: string): void {
+    this._snackBar.open(mensagem, 'Fechar', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
     });
-    this.router.navigate(['/listagemcartao']);
   }
 }

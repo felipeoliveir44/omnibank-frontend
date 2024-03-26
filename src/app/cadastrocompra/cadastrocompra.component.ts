@@ -5,6 +5,7 @@ import { Cartao } from '../models/cartao';
 import { CompraService } from '../servicos/compra/compra.service';
 import { Cliente } from '../models/cliente';
 import { Categoria } from '../models/categoria';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrocompra',
@@ -26,7 +27,7 @@ export class CadastrocompraComponent implements OnInit {
   estabelecimento!: string;
   valor!:number;
 
-  constructor(private compraService: CompraService) {
+  constructor(private compraService: CompraService, private _snackBar: MatSnackBar) {
 
     this.categoriaFiltrada$ = this.categoriaControl.valueChanges.pipe(
       startWith(''),
@@ -87,12 +88,19 @@ export class CadastrocompraComponent implements OnInit {
     this.compraService.cadastrar(valor, categoria, estabelecimento, this.cartaoSelecionado).subscribe(
       (response) => {
 
-        console.log('Status atualizado com sucesso!');
+        this.exibirSnackBarErro("Compra cadastrada com sucesso!");
       },
       (erro) => {
-        console.log("Erro", erro);
+        this.exibirSnackBarErro("Erro! Tente novamente.");
       }
     );
   }
 
+  private exibirSnackBarErro(mensagem: string): void {
+    this._snackBar.open(mensagem, 'Fechar', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
+  }
 }

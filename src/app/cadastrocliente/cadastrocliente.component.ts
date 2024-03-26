@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ClientesService } from '../servicos/cliente/clientes.service';
 import { Cliente } from '../models/cliente';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrocliente',
@@ -14,7 +15,7 @@ export class CadastroclienteComponent{
 
 
 
-  constructor(private service: ClientesService) { }
+  constructor(private service: ClientesService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -29,7 +30,19 @@ export class CadastroclienteComponent{
     console.log(this.cliente)
     this.service.cadastrar(this.cliente).subscribe(retorno => {
     this.clients = retorno
-    console.log(this.clients)
-    })
+    this.exibirSnackBarErro('Cliente cadastrado com sucesso!');
+    },
+    (erro) => {
+      this.exibirSnackBarErro('Erro! Tente novamente');
+    }
+    );
    }
+
+   private exibirSnackBarErro(mensagem: string): void {
+    this._snackBar.open(mensagem, 'Fechar', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
+  }
 }

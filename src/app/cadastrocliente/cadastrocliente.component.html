@@ -3,16 +3,16 @@
   <h1>Cadastro de Clientes</h1>
 <form (ngSubmit)="submitForm()" #clienteForm="ngForm">
   <mat-form-field>
-    <input matInput placeholder="Nome" name="nome" [(ngModel)]="cliente.nome" >
+    <input matInput placeholder="Nome" name="nome" [(ngModel)]="cliente.nome" required>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="CPF" name="CPF" [(ngModel)]="cliente.cpf" >
+    <input matInput placeholder="CPF" name="CPF" [(ngModel)]="cliente.cpf" required>
   </mat-form-field>
 
 
   <mat-form-field>
-    <input matInput placeholder="Email" name="email" [(ngModel)]="cliente.email"  email>
+    <input matInput placeholder="Email" name="email" [(ngModel)]="cliente.email"  email required>
   </mat-form-field>
 
   <mat-form-field>

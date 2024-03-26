@@ -87,12 +87,12 @@ export class ListagemcartaoComponent {
   atualizarStatus(cartaoId: number, novoStatus: number): void {
     this.cartaoService.atualizarStatusCartao(cartaoId, novoStatus).subscribe(
       (response) => {
-        console.log('Status atualizado com sucesso!');
+        this.exibirSnackBarErro("Status alterado com sucesso!")
         this.carregarCartoes(); // Atualiza a lista após a atualização do status
         
       },
       (erro) => {
-        this.exibirSnackBarErro('Erro ao atualizar o status do cartão. Por favor, tente novamente.');
+        this.exibirSnackBarErro("Erro! Tente novamente")
       }
     );
   }
