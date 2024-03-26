@@ -1,14 +1,14 @@
 
 
 <div class="container">
-    <h2>Lista de Clientes</h2>
+    <h1>Lista de Clientes</h1>
     <mat-list *ngFor="let cliente of cliente">
         <mat-list-item class="lista">Nome do cliente: {{ cliente.nome  }}</mat-list-item>
         <mat-list-item class="lista">CPF: {{ cliente.cpf }}</mat-list-item>
         <mat-list-item class="lista">Telefone: {{ cliente.telefone }}</mat-list-item>
         <mat-list-item class="lista">Email: {{ cliente.email }}</mat-list-item>
     </mat-list>
-    <button mat-raised-button color="primary" routerLink="/cadastrocliente">Cadastrar novo cliente</button>
+    <button class="botao-cadastrar" mat-raised-button color="primary" routerLink="/cadastrocliente">Cadastrar novo cliente</button>
     <!-- <mat-list>
         <mat-list-item class="list" *ngFor="let cliente of clientes">
         <div matLine class="test"></div>

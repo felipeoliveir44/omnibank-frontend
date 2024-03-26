@@ -1,13 +1,17 @@
 #corpoDoFormulario{
   background-color: rgb(255, 255, 255);
   width: 600px;
-  margin: 30px auto;
+  margin: 3rem auto;
   padding: 10px;
   border-radius: 15px;
   
-  h1{
-  text-align: center;
-  }
+ h1  {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem 1.5rem 1.5rem 2rem;
+ }
   
   mat-form-field {
     width: 100%;

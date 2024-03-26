@@ -1,3 +1,10 @@
+#corpoDoFormulario{
+    background-color: rgb(255, 255, 255);
+    width: 600px;
+    margin: 3rem auto;
+    padding: 10px;
+    border-radius: 15px;
+}
 .cadastro-component {
   background-color: black;
 }
@@ -11,12 +18,14 @@
   gap: 20px;
 
 }
+
 .pesquisa{
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1.5rem;
   gap: 30px;
 }
 .matInput {
@@ -30,5 +39,5 @@
   gap: 30px;
 }
 .mat-mdc-form-field {
-  width: 400px;
+  width: 350px;
 }
