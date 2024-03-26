@@ -1,4 +1,4 @@
-h2 {
+h1 {
   margin: 0;
   color: #fff;
 }
@@ -7,7 +7,10 @@ h2 {
   margin-left: 20px;
 }
 
-
+.botao-listagem-cartao {
+  padding: 1rem 1.5rem 1.5rem 2rem ;
+  justify-content: right;
+}
 
 mat-list-item {
   height: auto;
@@ -26,19 +29,22 @@ mat-list-item {
 }
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   justify-items: center;
   align-items: center;
+  padding: 2rem 1.5rem 1.5rem 2rem;
 }
-
+.h2-pesquisa {
+  margin: 16px 16px;
+}
 .pesquisa {
-  color: #fff;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   justify-items: center;
-  gap: 30px;
+  gap: 35px;
 
   input {
     width: 300px;
@@ -49,9 +55,10 @@ mat-list-item {
 .container {
   margin: 30px auto;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   justify-content: center;
   justify-items: center;
+  align-items: center;
   max-width: 1200px; 
 
     .lista {
@@ -65,8 +72,11 @@ mat-list-item {
 }
 
 .buttons {
-  margin: 40px 0px;
+  margin: 5rem 2rem;
   display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
   gap:30px
 }
 

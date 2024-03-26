@@ -1,26 +1,16 @@
-
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
   <mat-tab label="Relatório Gasto por Categoria">
     <div class="gasto-categoria">
       <div class="selecionar-cartao">
-        <h2>Selecione o cartão</h2>
-
+        <div class="header">
+          <h1>Selecione o cartão</h1>
+        </div>
         <mat-form-field>
-          <input
-            type="text"
-            placeholder="Digite o numero do cartão"
-            matInput
-            [formControl]="cartaoControl"
-            [matAutocomplete]="autoCartao"
-            class="input"
-            [(ngModel)]="cartaoId"
-          />
+          <input type="text" placeholder="Digite o numero do cartão" matInput [formControl]="cartaoControl"
+            [matAutocomplete]="autoCartao" class="input" [(ngModel)]="cartaoId" />
           <mat-autocomplete #autoCartao="matAutocomplete">
-            <mat-option
-              *ngFor="let cartao of cartaoFiltrados$ | async"
-              [value]="cartao.nomeCliente"
-              (onSelectionChange)="selecionarCartao(cartao)"
-            >
+            <mat-option *ngFor="let cartao of cartaoFiltrados$ | async" [value]="cartao.nomeCliente"
+              (onSelectionChange)="selecionarCartao(cartao)">
               {{ cartao.numeroCartao }} (Cliente: {{ cartao.nomeCliente }})
             </mat-option>
           </mat-autocomplete>
@@ -30,55 +20,36 @@
       <div class="container-data">
         <mat-form-field>
           <mat-label>Escolha a data de início</mat-label>
-          <input
-            matInput
-            [matDatepicker]="inicioPicker"
-            [(ngModel)]="dataInicio"
-          />
+          <input matInput [matDatepicker]="inicioPicker" [(ngModel)]="dataInicio" />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="inicioPicker"
-          ></mat-datepicker-toggle>
+          <mat-datepicker-toggle matSuffix [for]="inicioPicker"></mat-datepicker-toggle>
           <mat-datepicker #inicioPicker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Escolha a data final</mat-label>
-          <input
-            matInput
-            [matDatepicker]="finalPicker"
-            [(ngModel)]="dataFinal"
-          />
+          <input matInput [matDatepicker]="finalPicker" [(ngModel)]="dataFinal" />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="finalPicker"
-          ></mat-datepicker-toggle>
+          <mat-datepicker-toggle matSuffix [for]="finalPicker"></mat-datepicker-toggle>
           <mat-datepicker #finalPicker></mat-datepicker>
         </mat-form-field>
       </div>
 
-      <button
-        mat-raised-button
-        color="accent"
-        (click)="listarDados(cartaoId, dataInicio, dataFinal)"
-      >
+      <button class="botao-visualizar" mat-raised-button color="accent" (click)="listarDados(cartaoId, dataInicio, dataFinal)">
         Visualizar
       </button>
 
       <div class="list-container">
         <div class="categoria">
-          <h1>Categoria</h1>
+          <h2>Categoria</h2>
           <mat-list *ngFor="let categoria of dados">
             <mat-list-item class="lista"> {{ categoria.nomeCategoria }}</mat-list-item>
           </mat-list>
 
-          
         </div>
 
         <div class="categoria">
-          <h1>Valor gasto</h1>
+          <h2>Valor gasto</h2>
           <mat-list *ngFor="let categoria of dados">
             <mat-list-item class="lista"> {{ categoria }}</mat-list-item>
           </mat-list>

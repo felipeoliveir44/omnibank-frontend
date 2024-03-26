@@ -1,5 +1,5 @@
-h2 {
-    margin: 0;
+h1 {
+    margin: 3rem auto;
     color: #fff;
   }
   
@@ -23,12 +23,16 @@ h2 {
     flex-direction: column;
     justify-content: center;
     justify-items: center;
+    align-items: center;
     max-width: 1200px; 
 
     .lista {
         width: auto;
     }
+  .botao-cadastrar{
+    margin: 3rem;
 
+}
     button {
         width: 300px;
         height: 50px;

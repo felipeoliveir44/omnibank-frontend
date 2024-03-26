@@ -25,7 +25,7 @@
 /*  Home   inicio  */
 
 body {
-  background-color: rgb(34, 34, 34);
+  background-color: rgb(191, 238, 18);
   color: white;
   font-family: "Ubuntu", sans-serif;
 
@@ -131,7 +131,7 @@ span {
   text-align: center;
   color: white;
   text-align: right;
-  font-family: Roboto, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   padding: 20px;
 
 }
@@ -222,9 +222,9 @@ section .title::before {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 180px;
+  width: 200px;
   height: 3px;
-  background: #000000;
+  background: white;
   transform: translateX(-50%);
 }
 
@@ -233,7 +233,7 @@ section .title::after {
   bottom: -12px;
   left: 50%;
   font-size: 20px;
-  background: #1d1b1c;
+  background: #222;
   color: #9c25d3;
   padding: 5px;
   transform: translateX(-50%);
@@ -303,7 +303,7 @@ section .title::after {
 /*  sessão serviços */
 .services,
 .teams {
-  background: #000000;
+  background: #111;
   color: white;
 }
 
@@ -315,7 +315,7 @@ section .title::after {
 .services .title::after,
 .teams .title::after {
   background: #111;
-  content: "nossa finalidade";
+  content: "Nossa Finalidade";
 }
 
 .services .serv-content .card {
@@ -359,7 +359,7 @@ section .title::after {
 
 /*  sessão equipe  */
 .teams .title::after {
-  content: "nosso time";
+  content: "Nosso time";
 }
 .carousel {
   display: flex;
@@ -435,14 +435,14 @@ section .title::after {
 
 // cartão
 .cart .title::after {
-  content: "nosso cartão";
+  content: "Nosso cartão";
 }
 
 
 h3.omni {
   line-height: 28px;
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 40px;
   color: #52ffae;
   height: 60px;
@@ -450,8 +450,8 @@ h3.omni {
 }
 
 h4 {
-  line-height: 10px;
+  line-height: 30px;
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 20px;
 }
