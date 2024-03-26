@@ -45,13 +45,12 @@
           <mat-list *ngFor="let categoria of dados">
             <mat-list-item class="lista"> {{ categoria.nomeCategoria }}</mat-list-item>
           </mat-list>
-
         </div>
 
         <div class="categoria">
           <h2>Valor gasto</h2>
           <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista"> {{ categoria }}</mat-list-item>
+            <mat-list-item class="lista"> {{ categoria.totalGasto }}</mat-list-item>
           </mat-list>
         </div>
       </div>

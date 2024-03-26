@@ -23,6 +23,7 @@ export class RelatoriosComponent implements OnInit {
   cartaoId!: number;
 
   dados: RelatorioCategoria[] = [];
+  
 
   constructor(private relatorioService: RelatoriosService, private datePipe: DatePipe) { 
     this.cartaoFiltrados$ = this.cartaoControl.valueChanges.pipe(
@@ -52,19 +53,10 @@ export class RelatoriosComponent implements OnInit {
   listarDados(idCartao: number, dataInicio: Date, dataFinal: Date) {
     const dataInicioFormatada = this.formatarData(dataInicio);
     const dataFinalFormatada = this.formatarData(dataFinal);
-  
     this.relatorioService.listar(this.cartaoSelecionado, dataInicioFormatada, dataFinalFormatada).subscribe(
       (dados: RelatorioCategoria[]) => {
         this.dados = dados;
         console.log('Dados recebidos:', dados);
-  
-        // Itera sobre cada objeto da lista de dados
-        dados.forEach(item => {
-          console.log('Objeto completo:', item);
-          console.log('Objeto completo, json:', JSON.stringify(item)); // Imprime o objeto completo para ver as propriedades disponíveis
-          console.log('Categoria:', item.nomeCategoria);
-          console.log('Valor Gasto:', item.valorGasto);
-        });
       },
       (erro) => {
         console.log("Erro ao obter os dados:", erro);
