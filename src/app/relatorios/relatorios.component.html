@@ -1,4 +1,3 @@
-
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
   <mat-tab label="Relatório Gasto por Categoria">
     <div class="gasto-categoria">
@@ -35,7 +34,6 @@
             [matDatepicker]="inicioPicker"
             [(ngModel)]="dataInicio"
           />
-          <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matSuffix
             [for]="inicioPicker"
@@ -50,7 +48,6 @@
             [matDatepicker]="finalPicker"
             [(ngModel)]="dataFinal"
           />
-          <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matSuffix
             [for]="finalPicker"
@@ -71,20 +68,73 @@
         <div class="categoria">
           <h1>Categoria</h1>
           <mat-list>
-            <mat-list-item *ngFor="let categoria of dados">{{ categoria.nomeCategoria }}</mat-list-item>
+            <mat-list-item *ngFor="let categoria of dados">{{
+              categoria.nomeCategoria
+            }}</mat-list-item>
           </mat-list>
         </div>
 
         <div class="categoria">
           <h1>Valor gasto</h1>
           <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista"> {{ categoria.totalGasto }}</mat-list-item>
+            <mat-list-item class="lista">
+              {{ categoria.totalGasto }}</mat-list-item
+            >
           </mat-list>
         </div>
       </div>
     </div>
   </mat-tab>
 
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
-</mat-tab-group>
+  <mat-tab label="Relatório de Acompanhamento de Clientes">
+    <div class="datas">
+    <mat-form-field>
+      <mat-label>Escolha a data de início</mat-label>
+      <input
+        matInput
+        [matDatepicker]="inicioPicker"
+        [(ngModel)]="dataInicio"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="inicioPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #inicioPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Escolha a data final</mat-label>
+      <input
+        matInput
+        [matDatepicker]="finalPicker"
+        [(ngModel)]="dataFinal"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="finalPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #finalPicker></mat-datepicker>
+    </mat-form-field>
+
+
+  </div>
+
+    <div class="acompanhamento-cliente">
+      <button mat-raised-button color="accent">Visualizar</button>
+
+      <div class="container">
+        <div class="card">
+          <h2>Mais compras realizadas</h2>
+          <p>Conteúdo do card 1...</p>
+        </div>
+        <div class="card">
+          <h2>Compras de maior valor</h2>
+          <p>Conteúdo do card 2...</p>
+        </div>
+        <div class="card">
+          <h2>Não realizaram compras</h2>
+          <p>Conteúdo do card 3...</p>
+        </div>
+      </div>
+    </div></mat-tab
+  ></mat-tab-group
+>
