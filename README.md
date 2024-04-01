@@ -9,7 +9,7 @@ O projeto Omnibank é um sistema de gerenciamento de clientes e cartões de cré
 
 As funcionalidades desse projeto são:
 - Cadastro, listagem, edição e exclusão de clientes
-- Cadstro e alteração de limites do cartão
+- Cadastro e alteração de limites do cartão
 - Cadastro de compras
 - Relatórios por gastos de categoria e acompanhamento de clientes (Mais compras realizadas, compras de maior valor e clientes que não realizam compras)
 
