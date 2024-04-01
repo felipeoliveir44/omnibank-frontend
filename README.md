@@ -14,9 +14,9 @@ As funcionalidades desse projeto são:
 - Relatórios por gastos de categoria e acompanhamento de clientes (Mais compras realizadas, compras de maior valor e clientes que não realizam compras)
 
 ## 💻 Tecnologias
-Utilizamos as tecnologias:
-- Angular
-- Typescript
+Utilizamos as tecnologias: <br> <br>
+![Angular](https://img.shields.io/badge/angular-%23323330.svg?style=for-the-badge&logo=angular)
+![Typescript](https://img.shields.io/badge/typescript-%23323330.svg?style=for-the-badge&logo=typescript)
 
 ## :rocket: Instalação
 Para realizar a instalação e rodar o nosso projeto, seguir os seguintes passos: 
@@ -55,4 +55,7 @@ Este projeto foi realizado por:
 - [Leticia Lima](https://github.com/leticiajlima)
 - [Luiz Felipe](https://github.com/felipeoliveir44)
 - [Nathalya Lima](https://github.com/Nathalya09)
+
+## Para acessar o back-end do nosso projeto:
+[![Omnibank-backend](https://img.shields.io/badge/Omnibank_backend-1d1d1d?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/felipeoliveir44/omnibank)
   
