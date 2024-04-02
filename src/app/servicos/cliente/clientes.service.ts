@@ -15,6 +15,10 @@ export class ClientesService {
 
   private delete: string = 'http://localhost:8080/cliente/desativar/';
 
+  private ativar: string = 'http://localhost:8080/cliente/ativar/';
+
+  private put: string = 'http://localhost:8080/cliente/atualizar'
+
   constructor(private http: HttpClient) {}
 
   listar(pagina: number): Observable<Page<Cliente>> {
@@ -25,8 +29,21 @@ export class ClientesService {
     return this.http.post<any[]>(this.post, obj);
   }
 
-  deletarCliente(clienteId: number): Observable<any> {
+  desativarCliente(clienteId: number): Observable<any> {
     const url = `${this.delete}${clienteId}`;
     return this.http.delete<any>(url);
   }
+
+  ativarCliente(clienteId: number): Observable<any> {
+    const url = `${this.ativar}${clienteId}`;
+    return this.http.put<any[]>(url, {});
+  }
+
+  atualizarCliente(idCliente: number, nome:string, email: string, telefone: string): Observable<any[]> {
+    const url = `${this.put}`;
+    const dados = {id:idCliente, nome: nome, email: email, telefone:telefone}
+    return this.http.put<any[]>(url, dados);
+  }
+
+
 }

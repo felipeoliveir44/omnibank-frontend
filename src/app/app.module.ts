@@ -25,7 +25,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -46,6 +46,7 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListagemclienteComponent } from './listagemcliente/listagemcliente.component';
 import { VisualizarFaturaComponent } from './visualizar-fatura/visualizar-fatura.component';
+import { DialogEditarComponent } from './listagemcliente/dialog-editar/dialog-editar.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { VisualizarFaturaComponent } from './visualizar-fatura/visualizar-fatura
       CadastroclienteComponent,
       RelatoriosComponent,
       ListagemclienteComponent,
-      VisualizarFaturaComponent
+      VisualizarFaturaComponent,
+      DialogEditarComponent
    ],
   imports: [
     BrowserModule,
@@ -92,7 +94,8 @@ import { VisualizarFaturaComponent } from './visualizar-fatura/visualizar-fatura
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    DatePipe
+    DatePipe,
+    MatDialogModule
 
 
   ],

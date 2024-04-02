@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Editar cliente</h1>
+    <form #clienteForm="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Nome" name="nome" [(ngModel)]="clienteCopia.nome" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="CPF" name="CPF" [(ngModel)]="clienteCopia.cpf" disabled />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Email" name="email" [(ngModel)]="clienteCopia.email" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Telefone" name="telefone" [(ngModel)]="clienteCopia.telefone" />
+      </mat-form-field>
+  
+      <div class="buttons">
+        <button mat-raised-button color="primary" type="button" (click)="editarCliente(cliente.id, clienteCopia.nome, clienteCopia.email, clienteCopia.telefone)">Editar</button>
+        <button mat-raised-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>

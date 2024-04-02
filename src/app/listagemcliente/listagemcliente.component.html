@@ -7,17 +7,11 @@
         <mat-list-item class="lista">CPF: {{ cliente.cpf }}</mat-list-item>
         <mat-list-item class="lista">Telefone: {{ cliente.telefone }}</mat-list-item>
         <mat-list-item class="lista">Email: {{ cliente.email }}</mat-list-item>
+        <div class="buttons">
+            <button mat-raised-button color="primary" class="botoes-acoes" (click)="abrirDialog(cliente)">Alterar</button>
+            <button mat-raised-button color="warn" class="botoes-acoes" *ngIf="cliente.status == true" (click)="desativarCliente(cliente.id)">Desativar</button>
+            <button mat-raised-button color="primary" class="botoes-acoes" *ngIf="cliente.status == false" (click)="ativarCliente(cliente.id)">Ativar</button>
+        </div>
     </mat-list>
     <button class="botao-cadastrar" mat-raised-button color="primary" routerLink="/cadastrocliente">Cadastrar novo cliente</button>
-    <!-- <mat-list>
-        <mat-list-item class="list" *ngFor="let cliente of clientes">
-        <div matLine class="test"></div>
-        <div matLine></div>
-        <div matLine>{{  }}</div>
-        <div matLine>{{ cliente.email }}</div>
-        <button mat-icon-button color="warn" (click)="excluirCliente(cliente)">
-            <mat-icon>delete</mat-icon>
-        </button>
-        </mat-list-item>
-    </mat-list>-->
 </div>
