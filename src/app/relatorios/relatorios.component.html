@@ -64,24 +64,25 @@
         Visualizar
       </button>
 
-      <div class="list-container">
-        <div class="categoria">
-          <h1>Categoria</h1>
-          <mat-list>
-            <mat-list-item *ngFor="let categoria of dados">{{
-              categoria.nomeCategoria
-            }}</mat-list-item>
-          </mat-list>
-        </div>
+      <div class="dadosRetorno">
+        <table mat-table [dataSource]="dataSource" matSort class="tabela-dados">
+          <!-- Definição das colunas -->
+          <ng-container matColumnDef="Categoria">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoria</th>
+            <td mat-cell *matCellDef="let dado">{{ dado.nomeCategoria }}</td>
+          </ng-container>
 
-        <div class="categoria">
-          <h1>Valor gasto</h1>
-          <mat-list *ngFor="let categoria of dados">
-            <mat-list-item class="lista">
-              {{ categoria.totalGasto }}</mat-list-item
-            >
-          </mat-list>
-        </div>
+          <ng-container matColumnDef="ValorGasto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Valor Gasto
+            </th>
+            <td mat-cell *matCellDef="let dado">R$ {{ dado.totalGasto }}</td>
+          </ng-container>
+
+          <!-- Define as linhas -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
       </div>
     </div>
   </mat-tab>
@@ -116,24 +117,41 @@
           <mat-datepicker #finalPickerAcompanhamento></mat-datepicker>
         </mat-form-field>
 
-        <button mat-raised-button color="accent" (click)="listarRelatorio()">Visualizar</button>
+        <button mat-raised-button color="accent" (click)="listarRelatorio()">
+          Visualizar
+        </button>
       </div>
 
       <div class="acompanhamento-cliente">
-        
-
         <div class="container">
           <div class="card">
             <h2>Mais compras realizadas</h2>
-            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteMaisCompras">Cliente: {{ dados.nomeCliente }} {{ dados.quantidadeCompras}} compras</mat-list-item>
+            <mat-list>
+              <mat-list-item
+                *ngFor="let dados of dadosAcompanhamentoClienteMaisCompras"
+                >{{ dados.nomeCliente }} /
+                {{ dados.quantidadeCompras }} compras</mat-list-item
+              >
+            </mat-list>
           </div>
           <div class="card">
             <h2>Compras de maior valor</h2>
-            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteMaiorValor">Cliente: {{ dados.nomeCliente }} Valor: {{ dados.maiorValorCompra}}</mat-list-item>
+            <mat-list>
+              <mat-list-item
+                *ngFor="let dados of dadosAcompanhamentoClienteMaiorValor"
+                >{{ dados.nomeCliente }} / Valor:
+                R$ {{ dados.maiorValorCompra }}</mat-list-item
+              >
+            </mat-list>
           </div>
           <div class="card">
             <h2>Não realizaram compras</h2>
-            <mat-list-item *ngFor="let dados of dadosAcompanhamentoClienteSemCompra">Cliente: {{ dados.nome }}</mat-list-item>
+            <mat-list>
+              <mat-list-item
+                *ngFor="let dados of dadosAcompanhamentoClienteSemCompra"
+                >{{ dados.nome }}</mat-list-item
+              >
+            </mat-list>
           </div>
         </div>
       </div>

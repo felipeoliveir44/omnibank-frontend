@@ -27,11 +27,16 @@ mat-tab {
   width: 400px;
 }
 
+.mdc-data-table__table {
+  margin-top: 30px;
+  width: 600px;
+}
+
 // Estilos para o grupo de tabs
 mat-tab-group {
   color: #fff;
   margin-bottom: 48px;
-  height: 600px;
+  height: 900px;
 }
 
 // Estilos para listas
@@ -62,7 +67,7 @@ h1 {
 .card {
   width: calc(33.33% - 20px); /* Calcula 1/3 do espaço disponível com margens entre os cards */
   padding: 20px;
-  background-color: #101433;
+  background-color: #414141;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

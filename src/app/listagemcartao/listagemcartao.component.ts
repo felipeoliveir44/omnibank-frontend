@@ -50,7 +50,7 @@ export class ListagemcartaoComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
     this.cartoes = this.filtro.filter((cartoes)=>{
-      return cartoes.numeroCartao?.toLowerCase().includes(value);
+      return cartoes.numeroCartao?.includes(value);
     })
   }
 
@@ -58,7 +58,7 @@ export class ListagemcartaoComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
     this.cartoes = this.filtro.filter((cartoes)=>{
-      return cartoes.cpfCliente.toLowerCase().includes(value);
+      return cartoes.cpfCliente.includes(value);
     })
   }
 

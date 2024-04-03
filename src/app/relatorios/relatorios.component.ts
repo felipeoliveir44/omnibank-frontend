@@ -7,6 +7,8 @@ import { Cartao } from '../models/cartao';
 import { DatePipe } from '@angular/common';
 import { RelatorioCategoria } from '../models/relatorioCategoria';
 import { AcompanhamentoClienteService } from '../servicos/acompanhamentoCliente.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-relatorios',
@@ -24,7 +26,7 @@ export class RelatoriosComponent implements OnInit {
   cartaoId!: number;
 
 
-  dados: RelatorioCategoria[] = [];
+  
 
 
 
@@ -34,6 +36,13 @@ export class RelatoriosComponent implements OnInit {
   dadosAcompanhamentoClienteMaiorValor:any[] = [];
   dadosAcompanhamentoClienteSemCompra:any[] = [];
   dadosAcompanhamentoClienteMaisCompras: any[] = [];
+
+
+
+  dataSource = new MatTableDataSource<any>();
+  displayedColumns: string[] = ['Categoria', 'ValorGasto'];
+  sort!: MatSort; // MatSort não precisa ser inicializado como 'any'
+  dados: RelatorioCategoria[] = [];
 
   
   constructor(private relatorioService: RelatoriosService, private acompanhamento: AcompanhamentoClienteService, private datePipe: DatePipe) { 
@@ -48,6 +57,10 @@ export class RelatoriosComponent implements OnInit {
       startWith(''),
       switchMap(value => this.relatorioService.buscarCartaoAutoComplete(value))
     );
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort; // Vincula o MatSort à fonte de dados após a inicialização da visualização
   }
 
   selecionarCartao(cartao: Cartao): void {
@@ -65,8 +78,10 @@ export class RelatoriosComponent implements OnInit {
     const dataInicioFormatada = this.formatarData(dataInicio);
     const dataFinalFormatada = this.formatarData(dataFinal);
     this.relatorioService.listar(this.cartaoSelecionado, dataInicioFormatada, dataFinalFormatada).subscribe(
-      (dados: RelatorioCategoria[]) => {
+      (dados: any) => {
+        // **Atribui os dados recebidos à variável 'dados'**
         this.dados = dados;
+        this.dataSource.data = dados;
         console.log('Dados recebidos:', dados);
       },
       (erro) => {
