@@ -1,48 +1,83 @@
-<div class="container">
+<div class="main">
+  <div class="container">
+    <div class="container-cards">
+      <div class="header">
+        <h1>Realizar Compra</h1>
+      </div>
+      <mat-form-field>
+        <input
+          type="text"
+          placeholder="Digite o numero do cartão"
+          matInput
+          [formControl]="cartaoControl"
+          [matAutocomplete]="autoCartao"
+          class="input"
+          [(ngModel)]="cartaoId"
+        />
+        <mat-autocomplete #autoCartao="matAutocomplete">
+          <mat-option
+            *ngFor="let cartao of cartaoFiltrados$ | async"
+            [value]="cartao.nomeCliente"
+            (onSelectionChange)="selecionarCartao(cartao)"
+          >
+            {{ cartao.numeroCartao }} (Cliente: {{ cartao.nomeCliente }})
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>Valor:</mat-label>
+        <input
+          matInput
+          type="number"
+          id="valor"
+          placeholder="Digite o valor"
+          [(ngModel)]="valor"
+        />
+      </mat-form-field>
 
-  <div class="container-cards">
-    <div class="header">
-      <h1>Realizar Compra</h1>
-    </div>
-    <mat-form-field>
-      <input type="text" placeholder="Digite o numero do cartão" matInput [formControl]="cartaoControl"
-        [matAutocomplete]="autoCartao" class="input" [(ngModel)]="cartaoId">
-      <mat-autocomplete #autoCartao="matAutocomplete">
-        <mat-option *ngFor="let cartao of cartaoFiltrados$ | async" [value]="cartao.nomeCliente"
-          (onSelectionChange)="selecionarCartao(cartao)">
-          {{ cartao.numeroCartao }} (Cliente: {{cartao.nomeCliente }})
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estabelecimento:</mat-label>
+        <input
+          matInput
+          type="text"
+          id="estabelecimento"
+          placeholder="Digite o estabelecimento"
+          [(ngModel)]="estabelecimento"
+        />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Valor:</mat-label>
-      <input matInput type="number" id="valor" placeholder="Digite o valor" [(ngModel)]="valor">
-    </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          placeholder="Escolha a categoria"
+          matInput
+          [formControl]="categoriaControl"
+          [matAutocomplete]="autoCategoria"
+          class="input"
+          [(ngModel)]="categoria"
+        />
+        <mat-autocomplete #autoCategoria="matAutocomplete">
+          <mat-option
+            *ngFor="let categoria of categoriaFiltrada$ | async"
+            [value]="categoria.nome"
+            (onSelectionChange)="selecionarCategoria(categoria)"
+          >
+            {{ categoria.nome }} (ID: {{ categoria.id }})
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Estabelecimento:</mat-label>
-      <input matInput type="text" id="estabelecimento" placeholder="Digite o estabelecimento"
-        [(ngModel)]="estabelecimento">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input type="text" placeholder="Escolha a categoria" matInput [formControl]="categoriaControl"
-        [matAutocomplete]="autoCategoria" class="input" [(ngModel)]="categoria">
-      <mat-autocomplete #autoCategoria="matAutocomplete">
-        <mat-option *ngFor="let categoria of categoriaFiltrada$ | async" [value]="categoria.nome"
-          (onSelectionChange)="selecionarCategoria(categoria)">
-          {{ categoria.nome }} (ID: {{ categoria.id }})
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-
-
-    <div class="botoes">
-      <button mat-flat-button color="primary"
-        (click)="realizarCompra(valor, categoria, estabelecimento, cartaoId)">Realizar a compra</button>
-      <button mat-flat-button>Cancelar</button>
+      <div class="botoes">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="realizarCompra(valor, categoria, estabelecimento, cartaoId)"
+        >
+          Realizar a compra
+        </button>
+        <button mat-flat-button>Cancelar</button>
+      </div>
     </div>
   </div>
 </div>
