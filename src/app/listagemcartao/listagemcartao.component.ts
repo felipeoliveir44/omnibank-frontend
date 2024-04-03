@@ -17,14 +17,17 @@ export class ListagemcartaoComponent {
   paginaCartoes: Page<Cartao> = { content: [], totalPages: 0, totalElements: 0 };
   cartoes: Cartao[] = [];
   cartoesSalvos: Cartao[] = [];
+  filtro!:Cartao[];
   cpfDigitado: string = '';
   numeroDigitado: string = '';
   cartaoSelecionado: Cartao[] = [];
 
-  constructor(private cartaoService: CartaoserviceService, private _snackBar: MatSnackBar, private router:Router) {}
+  constructor(private cartaoService: CartaoserviceService, private _snackBar: MatSnackBar, private router:Router) {
+  }
 
   ngOnInit(): void {
     this.carregarCartoes();
+    
   }
 
   carregarCartoes(): void {
@@ -33,7 +36,9 @@ export class ListagemcartaoComponent {
         this.paginaCartoes = page;
         this.cartoesSalvos = page.content; // Salva os dados originais
         this.cartoes = page.content;
+        this.filtro = page.content
         console.log('Página de Cartões:', this.cartoes);
+        console.log("Filtros: ", this.filtro)
       },
       (erro) => {
         this.exibirSnackBarErro('Erro ao carregar os cartões. Por favor, tente novamente.');
@@ -41,47 +46,20 @@ export class ListagemcartaoComponent {
     );
   }
 
-  buscarCartoesPorCpf(): void {
-    if (this.cpfDigitado.trim() !== '') {
-      this.cartaoService.listarCartaoCpf(this.cpfDigitado).subscribe(
-        (page: Page<Cartao>) => {
-          this.cartoes = page.content;
-          console.log('Cartões encontrados por CPF:', this.cartoes);
-        },
-        (erro) => {
-          this.exibirSnackBarErro('Erro ao buscar cartões por CPF. Por favor, tente novamente.');
-        }
-      );
-    } else {
-      this.cartoes = this.cartoesSalvos; // Retorna os dados originais se o CPF estiver vazio
-    }
+  searchNumero(e: Event) {
+    const target = e.target as HTMLInputElement
+    const value = target.value
+    this.cartoes = this.filtro.filter((cartoes)=>{
+      return cartoes.numeroCartao?.toLowerCase().includes(value);
+    })
   }
 
-  buscarCartoesPorNumero(): void {
-    if (this.numeroDigitado.trim() !== '') {
-      this.cartaoService.listarCartaoNumero(this.numeroDigitado).subscribe(
-        (page: Page<Cartao>) => {
-          this.cartoes = page.content;
-          console.log('Cartões encontrados por número:', this.cartoes);
-        },
-        (erro) => {
-          this.exibirSnackBarErro('Erro ao buscar cartões por número. Por favor, tente novamente.');
-        }
-      );
-    } else {
-      this.cartoes = this.cartoesSalvos; // Retorna os dados originais se o número do cartão estiver vazio
-    }
-  }
-
-  executarPesquisa(): void {
-    if (this.cpfDigitado.trim() !== '') {
-      this.buscarCartoesPorCpf();
-    } else if (this.numeroDigitado.trim() !== '') {
-      this.buscarCartoesPorNumero();
-    } else {
-      this.exibirSnackBarErro('Preencha pelo menos um dos campos.');
-      this.cartoes = this.cartoesSalvos; // Retorna os valores originais
-    }
+  searchCpf(e: Event) {
+    const target = e.target as HTMLInputElement
+    const value = target.value
+    this.cartoes = this.filtro.filter((cartoes)=>{
+      return cartoes.cpfCliente.toLowerCase().includes(value);
+    })
   }
 
   atualizarStatus(cartaoId: number, novoStatus: number): void {

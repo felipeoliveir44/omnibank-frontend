@@ -11,9 +11,9 @@
   
   <div class="pesquisa">
     <h2 class="h2-pesquisa">Pesquisar</h2>
-      <input matInput [(ngModel)]="numeroDigitado" placeholder="Digite o número do cartão" type="text">
-      <input type="text" [(ngModel)]="cpfDigitado" placeholder="Digite o CPF">
-      <button mat-raised-button color="primary" class="botoes-acoes" (click)="executarPesquisa()">Pesquisar</button>
+      <input matInput [(ngModel)]="numeroDigitado" placeholder="Digite o número do cartão" type="text" (input)="searchNumero($event)">
+      <input type="text" [(ngModel)]="cpfDigitado" placeholder="Digite o CPF" (input)="searchCpf($event)">
+      <!-- <button mat-raised-button color="primary" class="botoes-acoes" (click)="buscarCartoesPorNumero()">Pesquisar</button> -->
       
   </div>
   <mat-list *ngFor="let cartao of cartoes">

@@ -14,5 +14,6 @@ export interface Cartao{
   status:boolean;
   id_cliente:number;
   nomeCliente:Cliente;
+  cpfCliente:string;
 }
 
